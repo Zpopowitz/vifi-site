@@ -9,8 +9,7 @@ export default {
         accent: "#34d399",
         accentDark: "#059669",
         muted: "#64748b",
-          },
-        },
+      },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "ui-monospace", "monospace"],
