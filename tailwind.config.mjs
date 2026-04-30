@@ -4,12 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: "#0a0e14",
-        paper: "#fafafa",
-        accent: "#10b981",
-        accentDark: "#0369a1",
-        muted: "#64748b",
-      },
+        ink: "#0a1628",
+      paper: "#fafafa",
+      accent: "#34d399",
+      accentDark: "#059669",
+       muted: "#64748b",
+          },
+        },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "ui-monospace", "monospace"],
