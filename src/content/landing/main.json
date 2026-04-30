@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "ViFi — Contactless patient monitoring from $50 of WiFi hardware",
+    "title": "ViFi — Contactless patient monitoring from $44 of WiFi hardware",
     "description": "ViFi watches over hospital patients without touching them. Two small chips on the wall track heart rate and breathing, no wires, no wearables. Built to make continuous monitoring affordable for every hospital bed."
   },
   "links": {
@@ -23,13 +23,13 @@
   "hero": {
     "eyebrow": "Pre-clearance research prototype",
     "headline_line1": "Hospital-grade vital signs",
-    "headline_highlight": "$50",
+    "headline_highlight": "$44",
     "headline_line2": "of WiFi hardware.",
     "tagline": "ViFi watches over hospital patients without touching them. Two small chips mounted in the room track heart rate and breathing using only WiFi signals — no wires, no wearables, nothing for the patient to wear, charge, or remember. We're building this for the 80% of hospital beds where vitals are checked every 4 to 8 hours by a nurse, and missed in between.",
     "primary_cta": "Pilot inquiry →",
     "secondary_cta": "See the results",
     "stats": [
-      { "label": "Cost per room",        "value": "$50",       "sublabel": "vs $3,000+ for a bedside monitor" },
+      { "label": "Cost per room",        "value": "$44",       "sublabel": "vs $3,000+ for a bedside monitor" },
       { "label": "Patient effort",       "value": "Zero",      "sublabel": "no wires, no wearables, no compliance" },
       { "label": "Coverage",             "value": "24/7",      "sublabel": "vs every 4–8 hours by a nurse" },
       { "label": "Validated accuracy",   "value": "4.15 bpm",  "sublabel": "real hardware, real subject" }
@@ -72,7 +72,7 @@
     "results_link_text": "Full methodology, captures, and per-session breakdowns: RESULTS.md",
     "placeholder_caption": "[ photo of ESP32-S3 array + result chart goes here ]",
     "comparison_rows": [
-      { "system": "ViFi",            "mae": "4.15 bpm", "hardware": "2× ESP32-S3",        "per_node_cost": "~$25",    "highlight": true  },
+      { "system": "ViFi",            "mae": "4.15 bpm", "hardware": "2× ESP32-S3",        "per_node_cost": "~$22",    "highlight": true  },
       { "system": "PhaseBeat",       "mae": "1.5 bpm",  "hardware": "2× Intel 5300 NIC",  "per_node_cost": "~$500",   "highlight": false },
       { "system": "Bedside monitor", "mae": "≤ 1 bpm",  "hardware": "ECG / SpO₂",         "per_node_cost": "~$3,000", "highlight": false }
     ]
