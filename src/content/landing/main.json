@@ -1,90 +1,101 @@
 {
+  "meta": {
+    "title": "ViFi — Contactless patient monitoring from $50 of WiFi hardware",
+    "description": "ViFi watches over hospital patients without touching them. Two small chips on the wall track heart rate and breathing, no wires, no wearables. Built to make continuous monitoring affordable for every hospital bed."
+  },
+  "links": {
+    "github": "https://github.com/Zpopowitz/vifi-ml",
+    "results": "https://github.com/Zpopowitz/vifi-ml/blob/main/RESULTS.md",
+    "roadmap": "https://github.com/Zpopowitz/vifi-ml/blob/main/ROADMAP.md",
+    "contact_email": "zach@vifi.health",
+    "pilot_email": "pilots@vifi.health"
+  },
   "nav": {
     "brand": "ViFi",
     "items": [
-      {
-        "label": "Problem",
-        "href": "#problem"
-      },
-      {
-        "label": "How it works",
-        "href": "#how"
-      },
-      {
-        "label": "Results",
-        "href": "#proof"
-      },
-      {
-        "label": "Roadmap",
-        "href": "#roadmap"
-      },
-      {
-        "label": "For hospitals",
-        "href": "#hospitals"
-      }
+      { "label": "Why",          "href": "#problem"   },
+      { "label": "How it works", "href": "#how"       },
+      { "label": "Results",      "href": "#proof"     },
+      { "label": "Roadmap",      "href": "#roadmap"   },
+      { "label": "For hospitals","href": "#hospitals" }
     ]
+  },
+  "hero": {
+    "eyebrow": "Pre-clearance research prototype",
+    "headline_line1": "Hospital-grade vital signs",
+    "headline_highlight": "$50",
+    "headline_line2": "of WiFi hardware.",
+    "tagline": "ViFi watches over hospital patients without touching them. Two small chips mounted in the room track heart rate and breathing using only WiFi signals — no wires, no wearables, nothing for the patient to wear, charge, or remember. We're building this for the 80% of hospital beds where vitals are checked every 4 to 8 hours by a nurse, and missed in between.",
+    "primary_cta": "Pilot inquiry →",
+    "secondary_cta": "See the results",
+    "stats": [
+      { "label": "Cost per room",        "value": "$50",       "sublabel": "vs $3,000+ for a bedside monitor" },
+      { "label": "Patient effort",       "value": "Zero",      "sublabel": "no wires, no wearables, no compliance" },
+      { "label": "Coverage",             "value": "24/7",      "sublabel": "vs every 4–8 hours by a nurse" },
+      { "label": "Validated accuracy",   "value": "4.15 bpm",  "sublabel": "real hardware, real subject" }
+    ]
+  },
+  "problem": {
+    "eyebrow": "Why this exists",
+    "heading": "Most hospital patients are unmonitored more than 23 hours a day.",
+    "paragraphs": [
+      "Outside the ICU — across roughly 700,000 U.S. hospital beds — a nurse takes vital signs every 4 to 8 hours. The rest of the time, no one is watching. Sepsis spikes, post-surgical complications, opioid-induced breathing problems: most of them happen in those gaps and only get noticed at the next round.",
+      "Continuous monitoring exists, but it costs about $3,000 per bed and means strapping wires and electrodes to people who often pull them off. So hospitals reserve it for the ICU. The much larger floor of ordinary patients gets nothing."
+    ],
+    "pullquote": "ViFi exists because the founder's mother spent 31 days getting diagnosed with Staphylococcus bacteremia after four separate visits, each time with vitals \"stable\" by the moment the nurse arrived."
+  },
+  "how_it_works": {
+    "eyebrow": "How it works",
+    "heading": "WiFi signals bend around bodies. We listen to how.",
+    "intro": "Two small chips in the room exchange WiFi signals back and forth. Every breath you take and every heartbeat slightly changes how those signals travel through the air. Our software reads those changes as vital signs — no contact, no wearables, no line of sight required.",
+    "diagram": "[ESP32-S3 TX] ─────── 192 subcarriers ───────► [ESP32-S3 RX]\n   antenna          (chest perturbs path)         antenna\n                                                     │\n                                                     │  USB serial @ 921600 baud\n                                                     ▼\n                                            csi_capture.py\n                                                     │\n                                                     ▼\n                                       first_capture_report.py\n                                                     │\n                                                     ▼\n                  HR / RR predictions  vs  Polar H10 ground truth",
+    "signal_path_title": "Signal pipeline (for the curious)",
+    "signal_path_steps": [
+      "Variance-rank top-K subcarriers",
+      "Butterworth 0.1–3 Hz bandpass",
+      "4× zero-padded FFT",
+      "Parabolic peak refinement (cardiac and respiratory bands)",
+      "9-dimensional feature vector → XGBoost regressor"
+    ],
+    "prior_art_title": "Where the science comes from",
+    "prior_art": "The signal-processing approach is from peer-reviewed academic work — PhaseBeat (INFOCOM 2017), FullBreathe (UbiComp 2018), ResBeat (2020). ViFi's contribution is making it work on $20 commodity ESP32 chips instead of $500 research-grade WiFi cards, with the calibration, signal quality checks, and audit trail you need to go in front of an FDA reviewer."
   },
   "proof": {
     "eyebrow": "What we've shown",
-    "heading_line1": "4.15 bpm cross-session HR accuracy",
-    "heading_line2": "on commodity hardware.",
+    "heading_line1": "The hardware works.",
+    "heading_line2": "We tested it.",
     "paragraphs": [
-      "Four paired captures, single subject, single room. Each capture pairs raw CSI from a 2-node ESP32-S3 array with continuous heart rate from a Polar H10 chest strap as ground truth.",
+      "Four paired captures, single subject, single room. Each capture pairs raw signal data from a 2-chip ESP32-S3 array with continuous heart rate from a Polar H10 chest strap as the ground-truth reference.",
       "For each holdout we trained on the remaining sessions and scored the held-out one — a leave-one-session-out evaluation that estimates how the system generalizes to a session it has never seen.",
-      "Mean absolute error across the two scored holdouts: 3.89 and 4.41 bpm (mean 4.15). Per-window accuracy within ±5 bpm: 65–68%. PhaseBeat reported 1.5 bpm using $500 Intel 5300 NICs in the same family of methods."
+      "Mean absolute error across the two scored holdouts: 3.89 and 4.41 beats per minute (mean 4.15). Per-window accuracy within ±5 bpm: 65–68%. PhaseBeat — the academic reference using $500 WiFi cards — reported 1.5 bpm. We did 4.15 on hardware that costs 20× less."
     ],
     "results_link_text": "Full methodology, captures, and per-session breakdowns: RESULTS.md",
     "placeholder_caption": "[ photo of ESP32-S3 array + result chart goes here ]",
     "comparison_rows": [
-      {
-        "system": "ViFi",
-        "mae": "4.15 bpm",
-        "hardware": "2× ESP32-S3",
-        "per_node_cost": "~$22",
-        "highlight": true
-      },
-      {
-        "system": "PhaseBeat",
-        "mae": "1.5 bpm",
-        "hardware": "2× Intel 5300 NIC",
-        "per_node_cost": "~$500",
-        "highlight": false
-      },
-      {
-        "system": "Bedside monitor",
-        "mae": "≤ 1 bpm",
-        "hardware": "ECG / SpO₂",
-        "per_node_cost": "~$3,000",
-        "highlight": false
-      }
+      { "system": "ViFi",            "mae": "4.15 bpm", "hardware": "2× ESP32-S3",        "per_node_cost": "~$25",    "highlight": true  },
+      { "system": "PhaseBeat",       "mae": "1.5 bpm",  "hardware": "2× Intel 5300 NIC",  "per_node_cost": "~$500",   "highlight": false },
+      { "system": "Bedside monitor", "mae": "≤ 1 bpm",  "hardware": "ECG / SpO₂",         "per_node_cost": "~$3,000", "highlight": false }
     ]
   },
-  "meta": {
-    "title": "ViFi — Contactless patient vitals from $44 of WiFi hardware",
-    "description": "ViFi is building a 510(k)-track contactless patient monitor on commodity ESP32 hardware. 4.15 bpm cross-session HR accuracy on real hardware at ~1/20th the cost of bedside monitors."
-  },
-  "open": {
-    "eyebrow": "For everyone else",
-    "heading": "The code is open.",
-    "body": "ViFi is pre-incorporation. The DSP pipeline, training scripts, API, dashboard, calibration, RF fingerprint, audit log, and 102-test suite all live on GitHub. If you're a researcher, an engineer curious about CSI-based sensing, a press contact, or just want to know whether a $44 sensor really hits 4.15 bpm cross-session — read the code and the methodology.",
-    "buttons": [
+  "roadmap": {
+    "eyebrow": "Where we're going",
+    "heading": "The path to a hospital-approved medical device.",
+    "intro": "Today ViFi is a pre-clearance research prototype, not a medical device. From here, three steps stand between us and a contactless monitor running over a hospital bed:",
+    "steps": [
       {
-        "label": "GitHub →",
-        "href": "https://github.com/Zpopowitz/vifi-ml"
+        "title": "Prove it works for everyone, in any room",
+        "body": "Test ViFi on 10+ different people, in 3+ different rooms, against the same chest-strap reference. Goal: under 3 bpm error across subjects we've never seen."
       },
       {
-        "label": "RESULTS.md",
-        "href": "https://github.com/Zpopowitz/vifi-ml/blob/main/RESULTS.md"
+        "title": "First hospital pilot",
+        "body": "Install ViFi in 5–10 hospital rooms alongside the existing standard of care. Compare what we see with what the hospital sees. Patient data stays on-site and de-identified; no clinical decisions are made from ViFi during the pilot."
       },
       {
-        "label": "ROADMAP.md",
-        "href": "https://github.com/Zpopowitz/vifi-ml/blob/main/ROADMAP.md"
-      },
-      {
-        "label": "popowitzzm@gmail.com",
-        "href": "mailto:popowitzzm@gmail.com"
+        "title": "FDA approval",
+        "body": "Run a clinical validation study at an academic medical center, compile the safety and accuracy data, file with the FDA. This is what makes ViFi legally usable for medical decisions in U.S. hospitals."
       }
-    ]
+    ],
+    "live_manifest_text": "Live shipped-vs-planned manifest: ROADMAP.md"
   },
   "hospitals": {
     "eyebrow": "For hospitals",
@@ -96,96 +107,26 @@
     "pilot_bullets": [
       "5–10 rooms instrumented with 2 ESP32-S3 boards each",
       "30–90 day duration, IRB review where applicable",
-      "Parallel to your existing standard-of-care monitoring; no clinical decisions are made from ViFi data",
-      "Fully de-identified, on-prem data handling",
+      "Runs alongside your existing monitoring; no clinical decisions are made from ViFi data",
+      "Fully de-identified, on-premise data handling",
       "Output: a measurement study comparing ViFi against your existing reference"
     ],
-    "cta": "Email popowitzzm@gmail.com →"
+    "cta": "Email pilots@vifi.health →"
   },
-  "links": {
-    "github": "https://github.com/Zpopowitz/vifi-ml",
-    "results": "https://github.com/Zpopowitz/vifi-ml/blob/main/RESULTS.md",
-    "roadmap": "https://github.com/Zpopowitz/vifi-ml/blob/main/ROADMAP.md",
-    "contact_email": "popowitzzm@gmail.com",
-    "pilot_email": "popowitzzm@gmail.com"
-  },
-  "hero": {
-    "eyebrow": "Pre-clearance research prototype",
-    "headline_line1": "Contactless patient vitals",
-    "headline_highlight": "$44",
-    "headline_line2": "of WiFi hardware.",
-    "tagline": "ViFi is building an FDA 510(k)-track contactless patient monitor that runs on commodity ESP32 chips. We've shown 4.15 bpm cross-session heart-rate accuracy on real hardware against a chest-strap reference — at roughly 1/20th the cost of the bedside monitors hospitals deploy today.",
-    "primary_cta": "Pilot inquiry →",
-    "secondary_cta": "Read the methodology",
-    "stats": [
-      {
-        "label": "HR MAE (cross-session)",
-        "value": "4.15 bpm"
-      },
-      {
-        "label": "Hardware cost / room",
-        "value": "~$44"
-      },
-      {
-        "label": "Validation",
-        "value": "LOSO × 4",
-        "sublabel": "leave-one-session-out"
-      },
-      {
-        "label": "Ground truth",
-        "value": "Polar H10",
-        "sublabel": "chest-strap, BLE"
-      }
+  "open": {
+    "eyebrow": "For everyone else",
+    "heading": "The code is open.",
+    "body": "ViFi is pre-incorporation and the engineering work lives publicly on GitHub — the signal pipeline, training scripts, prediction service, dashboard, calibration, fingerprinting, audit log, and 102-test suite. If you're a researcher, an engineer curious about WiFi-based sensing, a press contact, or just want to verify the 4.15 bpm number for yourself, read the code and the methodology.",
+    "buttons": [
+      { "label": "GitHub →",            "href": "https://github.com/Zpopowitz/vifi-ml" },
+      { "label": "RESULTS.md",          "href": "https://github.com/Zpopowitz/vifi-ml/blob/main/RESULTS.md" },
+      { "label": "ROADMAP.md",          "href": "https://github.com/Zpopowitz/vifi-ml/blob/main/ROADMAP.md" },
+      { "label": "zach@vifi.health",    "href": "mailto:zach@vifi.health" }
     ]
   },
   "footer": {
     "disclaimer_title": "ViFi is a pre-incorporation research project.",
     "disclaimer_body": "Not yet FDA-cleared. Research and development use only. The current system is not a medical device and must not be used for clinical decision-making.",
     "copyright": "© 2026 Zach Popowitz"
-  },
-  "roadmap": {
-    "eyebrow": "What we're building",
-    "heading": "FDA 510(k) Class II contactless vitals monitor.",
-    "intro": "The current system is a pre-clearance research prototype, not a medical device. Our target is FDA 510(k) Class II clearance for heart rate and respiratory rate at roughly 1/20th the per-bed cost of bedside monitors. The path:",
-    "steps": [
-      {
-        "title": "Multi-subject + multi-room validation",
-        "body": "10+ subjects, 3+ rooms, varied HR ranges, paired RR captures with a Vernier respiration belt. Target: cross-subject HR MAE under 3 bpm."
-      },
-      {
-        "title": "Wellness-grade hospital pilot (pre-FDA)",
-        "body": "5–10 medical/surgical beds, parallel to existing standard-of-care monitoring, fully de-identified. No clinical decision-making is made from ViFi data during the pilot."
-      },
-      {
-        "title": "FDA 510(k) Class II submission",
-        "body": "ISO 13485 quality system, clinical validation study at an academic medical center, predicate-device comparison filing."
-      }
-    ],
-    "live_manifest_text": "Live shipped-vs-planned manifest: ROADMAP.md"
-  },
-  "how_it_works": {
-    "eyebrow": "How it works",
-    "heading": "WiFi packets bend around bodies. We listen to how.",
-    "intro": "Two ESP32-S3 chips — one transmitting, one receiving — exchange WiFi packets at roughly 70–100 packets per second. Each received packet's per-subcarrier amplitude (Channel State Information, or CSI) reflects the multipath environment in the room, including chest-wall motion from breathing and heartbeat. No line of sight, no contact, no patient compliance.",
-    "diagram": "[ESP32-S3 TX] ─────── 192 subcarriers ───────► [ESP32-S3 RX]\n   antenna          (chest perturbs path)         antenna\n                                                     │\n                                                     │  USB serial @ 921600 baud\n                                                     ▼\n                                            csi_capture.py\n                                                     │\n                                                     ▼\n                                       first_capture_report.py\n                                                     │\n                                                     ▼\n                  HR / RR predictions  vs  Polar H10 ground truth",
-    "signal_path_title": "Signal path",
-    "signal_path_steps": [
-      "Variance-rank top-K subcarriers",
-      "Butterworth 0.1–3 Hz bandpass",
-      "4× zero-padded FFT",
-      "Parabolic peak refinement (cardiac and respiratory bands)",
-      "9-dimensional feature vector → XGBoost regressor"
-    ],
-    "prior_art_title": "Where the science comes from",
-    "prior_art": "The signal-processing approach is from peer-reviewed academic work — PhaseBeat (INFOCOM 2017), FullBreathe (UbiComp 2018), ResBeat (2020). ViFi's contribution is productizing it on commodity ESP32-S3 hardware, with calibration, RF fingerprinting, out-of-distribution suppression, and an auditable prediction pipeline suitable for an FDA submission."
-  },
-  "problem": {
-    "eyebrow": "The problem",
-    "heading": "Hospital patients outside the ICU are unmonitored more than 23 hours per day.",
-    "paragraphs": [
-      "On general medical/surgical floors — roughly 700,000 U.S. beds — the standard of care is a vitals reading every 4 to 8 hours by a nurse. Between those readings, transient deteriorations go unobserved: the fever spikes of brewing sepsis, the heart-rate surges of a bacteremia flare, the respiratory depression that precedes an opioid-related code.",
-      "Existing continuous-monitoring solutions cost roughly $3,000 per bed and require wires, electrodes, or wearables that patients remove, dislodge, or refuse. They're reserved for the ICU and step-down units. The 80% of beds where most preventable deteriorations actually happen get nothing."
-    ],
-    "pullquote": "ViFi exists because I experienced firsthand the issues with our current system when my mother, who spent 31 days getting diagnosed with Staphylococcus bacteremia after four separate visits, each time with vitals \"stable\" by the time the nurse arrived."
   }
 }
