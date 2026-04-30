@@ -170,7 +170,7 @@
     "heading": "WiFi signals bend around bodies. We listen to how.",
     "intro": "Two small chips in the room exchange WiFi signals back and forth. Every breath you take and every heartbeat slightly changes how those signals travel through the air. Our software reads those changes as vital signs — no contact, no wearables, no line of sight required.",
     "diagram": "[ESP32-S3 TX] ─────── 192 subcarriers ───────► [ESP32-S3 RX]\n   antenna          (chest perturbs path)         antenna\n                                                     │\n                                                     │  USB serial @ 921600 baud\n                                                     ▼\n                                            csi_capture.py\n                                                     │\n                                                     ▼\n                                       first_capture_report.py\n                                                     │\n                                                     ▼\n                  HR / RR predictions  vs  Polar H10 ground truth",
-    "signal_path_title": "Signal pipeline (for the curious)",
+    "signal_path_title": "Signal pipeline",
     "signal_path_steps": [
       "Variance-rank top-K subcarriers",
       "Butterworth 0.1–3 Hz bandpass",
