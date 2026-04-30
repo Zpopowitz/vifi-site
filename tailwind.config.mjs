@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: "#0a0e14",
+        ink: "#0a1628",
         paper: "#fafafa",
-        accent: "#0ea5e9",
-        accentDark: "#0369a1",
+        accent: "#34d399",
+        accentDark: "#059669",
         muted: "#64748b",
       },
       fontFamily: {

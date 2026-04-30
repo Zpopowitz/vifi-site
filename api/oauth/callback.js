@@ -1,9 +1,4 @@
 // Decap CMS OAuth proxy — callback endpoint.
-//
-// GitHub redirects the editor here with ?code=... after they approve
-// the OAuth app. We exchange the code for an access token (server-
-// side, using the OAuth app's client secret), then post the token
-// back to the Decap admin window via window.opener.postMessage().
 
 export default async function handler(req, res) {
   const code = req.query.code;
@@ -41,28 +36,42 @@ export default async function handler(req, res) {
     return;
   }
 
-  // Hand the token back to Decap via postMessage.
-  // Decap listens for 'authorization:github:success:{...}'.
-  const payload = JSON.stringify({ token, provider: "github" });
+  // Bidirectional handshake with Decap. The popup must send "authorizing:github"
+  // FIRST and wait for Decap (in the opener window) to acknowledge before
+  // sending the token. The previous version had this backwards, which is why
+  // Decap never received the token and the editor never opened.
+  const tokenJson = JSON.stringify({ token, provider: "github" });
+  const successMsg = "authorization:github:success:" + tokenJson;
+
   const html = `<!doctype html>
 <html><head><meta charset="utf-8"><title>OAuth complete</title></head>
 <body>
-<script>
-  (function () {
-    function send(msg) {
-      window.opener && window.opener.postMessage(msg, "*");
-    }
-    window.addEventListener("message", function (e) {
-      if (e.data === "authorizing:github") {
-        send("authorization:github:success:${payload.replace(/"/g, '\\"')}");
-      }
-    });
-    // Initial nudge in case Decap is already listening.
-    send("authorization:github:success:${payload.replace(/"/g, '\\"')}");
-    setTimeout(function () { window.close(); }, 800);
-  })();
-</script>
 <p>Authentication complete. You can close this window.</p>
+<script>
+(function () {
+  var sent = false;
+  function send(msg) {
+    if (window.opener) {
+      window.opener.postMessage(msg, "*");
+    }
+  }
+  function sendSuccess() {
+    if (sent) return;
+    sent = true;
+    send(${JSON.stringify(successMsg)});
+    setTimeout(function () { try { window.close(); } catch (e) {} }, 500);
+  }
+  window.addEventListener("message", function (e) {
+    if (typeof e.data === "string" && e.data.indexOf("authorizing:github") === 0) {
+      sendSuccess();
+    }
+  });
+  // Send handshake. Decap should reply, prompting sendSuccess().
+  send("authorizing:github");
+  // Fallback in case Decap doesn't reply for any reason.
+  setTimeout(sendSuccess, 1500);
+})();
+</script>
 </body>
 </html>`;
 
