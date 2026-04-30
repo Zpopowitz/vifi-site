@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/MarkdownLayout.astro
 title: Real-hardware results
-description: ViFi's real-hardware heart-rate methodology and numbers — 4.15 bpm cross-session HR MAE on $50 of ESP32-S3 hardware against a Polar H10 chest strap.
+description: ViFi's real-hardware heart-rate methodology and numbers — 4.15 bpm cross-session HR MAE on $44 of ESP32-S3 hardware against a Polar H10 chest strap.
 ---
 
 # ViFi — Real-Hardware Results
@@ -12,7 +12,7 @@ This document records the methodology and numbers for ViFi's real-hardware heart
 
 ## Headline
 
-**4.15 bpm cross-session HR mean absolute error** against a Polar H10 chest strap, on $50 of commodity ESP32-S3 hardware, single subject, single room, 4 paired captures totaling ~8 minutes of real-hardware data.
+**4.15 bpm cross-session HR mean absolute error** against a Polar H10 chest strap, on $44 of commodity ESP32-S3 hardware, single subject, single room, 4 paired captures totaling ~8 minutes of real-hardware data.
 
 | Holdout | Trained on | HR MAE | Within ±5 bpm | Bias |
 |---|---|---|---|---|
