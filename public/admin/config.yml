@@ -6,12 +6,12 @@ backend:
   name: github
   repo: Zpopowitz/vifi-site
   branch: main
-  base_url: https://vifi.health
+  base_url: https://www.vifi.health
   auth_endpoint: api/oauth/auth
 
 publish_mode: simple
-display_url: https://vifi.health
-site_url: https://vifi.health
+display_url: https://www.vifi.health
+site_url: https://www.vifi.health
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
