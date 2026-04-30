@@ -1,12 +1,12 @@
 ---
 layout: ../layouts/MarkdownLayout.astro
 title: Roadmap
-description: ViFi's shipped vs. planned manifest, hardware BOM, and FDA pathway. Contactless patient monitoring on ~$50 of commodity WiFi hardware per hospital bed.
+description: ViFi's shipped vs. planned manifest, hardware BOM, and FDA pathway. Contactless patient monitoring on ~$44 of commodity WiFi hardware per hospital bed.
 ---
 
 # ViFi Roadmap
 
-Contactless patient monitoring on ~$50 of commodity WiFi hardware per hospital bed. HR is validated on real hardware today; everything else runs on the same CSI stream and the same pair of ESP32-S3 nodes.
+Contactless patient monitoring on ~$44 of commodity WiFi hardware per hospital bed. HR is validated on real hardware today; everything else runs on the same CSI stream and the same pair of ESP32-S3 nodes.
 
 ---
 
@@ -108,7 +108,7 @@ Contactless patient monitoring on ~$50 of commodity WiFi hardware per hospital b
 
 | Item | Qty | ~$ |
 |---|---|---|
-| ESP32-S3-DevKitC-1U-N8R8 | 2 | 40 |
+| ESP32-S3-DevKitC-1U-N8R8 | 2 | 30 |
 | Dual-band 2.4/5 GHz RP-SMA antenna | 2 | 8 |
 | IPEX1 U.FL → RP-SMA Female pigtail, 8" | 2 | 6 |
 | **Total per room (v1)** | | **~$44** |
