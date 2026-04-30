@@ -62,24 +62,20 @@
     "description": "ViFi is a wall-mounted Wi-Fi sensor that continuously monitors hospital patients without ever touching them. Heart rate and breathing rate from $44 of hardware per room."
   },
   "open": {
-    "eyebrow": "For everyone else",
-    "heading": "The code is open.",
-    "body": "ViFi is pre-incorporation. All the engineering work is published on GitHub — the signal pipeline, training scripts, prediction service, dashboard, calibration, fingerprinting, audit log, and 102-test suite. If you're a researcher, an engineer curious about WiFi-based sensing, a press contact, or just want to verify the 4.15 bpm number for yourself, the code and methodology are public.",
+    "eyebrow": "Methodology and roadmap",
+    "heading": "Read the details.",
+    "body": "ViFi's full real-hardware methodology and product roadmap are public. The engineering work — capture pipeline, training scripts, prediction service, calibration, audit log, and 102-test suite — is kept private during pre-clearance development. Available for technical review under NDA for investors, hospital partners, and prospective collaborators.",
     "buttons": [
       {
-        "label": "GitHub →",
-        "href": "https://github.com/Zpopowitz/vifi-ml"
+        "label": "Read the methodology →",
+        "href": "/results"
       },
       {
-        "label": "RESULTS.md",
-        "href": "https://github.com/Zpopowitz/vifi-ml/blob/main/RESULTS.md"
+        "label": "Read the roadmap",
+        "href": "/roadmap"
       },
       {
-        "label": "ROADMAP.md",
-        "href": "https://github.com/Zpopowitz/vifi-ml/blob/main/ROADMAP.md"
-      },
-      {
-        "label": "popowitzzm@gmail.com",
+        "label": "Pilot Inquiry",
         "href": "mailto:popowitzzm@gmail.com"
       }
     ]
@@ -101,9 +97,9 @@
     "cta": "Email popowitzzm@gmail.com →"
   },
   "links": {
-    "github": "https://github.com/Zpopowitz/vifi-ml",
-    "results": "https://github.com/Zpopowitz/vifi-ml/blob/main/RESULTS.md",
-    "roadmap": "https://github.com/Zpopowitz/vifi-ml/blob/main/ROADMAP.md",
+    "github": "mailto:zach@vifi.health?subject=ViFi%20technical%20review%20request",
+    "results": "/results",
+    "roadmap": "/roadmap",
     "contact_email": "popowitzzm@gmail.com",
     "pilot_email": "popowitzzm@gmail.com"
   },
