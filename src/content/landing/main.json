@@ -4,9 +4,9 @@
     "description": "ViFi is a wall-mounted Wi-Fi sensor that monitors hospital patients continuously and never touches them. Heart rate and breathing rate from $50 of hardware per room."
   },
   "links": {
-    "github": "https://github.com/Zpopowitz/vifi-ml",
-    "results": "https://github.com/Zpopowitz/vifi-ml/blob/main/RESULTS.md",
-    "roadmap": "https://github.com/Zpopowitz/vifi-ml/blob/main/ROADMAP.md",
+    "github": "mailto:zach@vifi.health?subject=ViFi%20technical%20review%20request",
+    "results": "/results",
+    "roadmap": "/roadmap",
     "contact_email": "zach@vifi.health",
     "pilot_email": "pilots@vifi.health"
   },
@@ -47,7 +47,7 @@
   "how_it_works": {
     "eyebrow": "How it works",
     "heading": "WiFi signals bend around bodies. ViFi listens to how.",
-    "intro": "Two small chips in the room exchange WiFi signals back and forth. Every breath you take and every heartbeat slightly changes how those signals travel through the air. ViFi reads those changes as vital signs — no contact, no wearables, no line of sight required.",
+    "intro": "Two small chips on the wall sense how WiFi signals bend around the body. ViFi reads those tiny changes as heart rate and breathing rate. No contact. No wearables. No line of sight.",
     "diagram": "[ESP32-S3 TX] ─────── 192 subcarriers ───────► [ESP32-S3 RX]\n   antenna          (chest perturbs path)         antenna\n                                                     │\n                                                     │  USB serial @ 921600 baud\n                                                     ▼\n                                            csi_capture.py\n                                                     │\n                                                     ▼\n                                       first_capture_report.py\n                                                     │\n                                                     ▼\n                  HR / RR predictions  vs  Polar H10 ground truth",
     "signal_path_title": "Signal pipeline (for the curious)",
     "signal_path_steps": [
@@ -65,9 +65,7 @@
     "heading_line1": "The hardware works.",
     "heading_line2": "It's been tested.",
     "paragraphs": [
-      "Four paired captures, single subject, single room. Each capture pairs raw signal data from a 2-chip ESP32-S3 array with continuous heart rate from a Polar H10 chest strap as the ground-truth reference.",
-      "For each holdout, the system was trained on the remaining sessions and scored on the held-out one — a leave-one-session-out evaluation that estimates how it generalizes to a session it has never seen.",
-      "Mean absolute error across the two scored holdouts: 3.89 and 4.41 beats per minute (mean 4.15). Per-window accuracy within ±5 bpm: 65–68%. PhaseBeat — the academic reference using $500 WiFi cards — reported 1.5 bpm. ViFi: 4.15 bpm on hardware that costs 20× less."
+      "4.15 bpm cross-session HR error against a Polar H10 chest-strap reference, on a 2-chip array of $25 ESP32-S3 boards. PhaseBeat — the academic reference using $500 WiFi cards — reported 1.5 bpm. ViFi: 4.15 bpm on 20× cheaper hardware."
     ],
     "results_link_text": "Full methodology, captures, and per-session breakdowns: RESULTS.md",
     "placeholder_caption": "[ photo of ESP32-S3 array + result chart goes here ]",
@@ -114,14 +112,14 @@
     "cta": "Email pilots@vifi.health →"
   },
   "open": {
-    "eyebrow": "For everyone else",
-    "heading": "The code is open.",
-    "body": "ViFi is pre-incorporation. All the engineering work is published on GitHub — the signal pipeline, training scripts, prediction service, dashboard, calibration, fingerprinting, audit log, and 102-test suite. If you're a researcher, an engineer curious about WiFi-based sensing, a press contact, or just want to verify the 4.15 bpm number for yourself, the code and methodology are public.",
+    "eyebrow": "Methodology and roadmap",
+    "heading": "Read the details.",
+    "body": "ViFi's full real-hardware methodology and product roadmap are public. The engineering work — capture pipeline, training scripts, prediction service, calibration, audit log, and 102-test suite — is kept private during pre-clearance development. Available for technical review under NDA for investors, hospital partners, and prospective collaborators.",
     "buttons": [
-      { "label": "GitHub →",            "href": "https://github.com/Zpopowitz/vifi-ml" },
-      { "label": "RESULTS.md",          "href": "https://github.com/Zpopowitz/vifi-ml/blob/main/RESULTS.md" },
-      { "label": "ROADMAP.md",          "href": "https://github.com/Zpopowitz/vifi-ml/blob/main/ROADMAP.md" },
-      { "label": "zach@vifi.health",    "href": "mailto:zach@vifi.health" }
+      { "label": "Read the methodology →", "href": "/results"  },
+      { "label": "Read the roadmap →",      "href": "/roadmap"  },
+      { "label": "Pilot inquiry →",         "href": "mailto:pilots@vifi.health?subject=ViFi%20pilot%20inquiry" },
+      { "label": "zach@vifi.health",        "href": "mailto:zach@vifi.health" }
     ]
   },
   "footer": {

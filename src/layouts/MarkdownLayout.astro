@@ -1,0 +1,72 @@
+---
+import Layout from "./Layout.astro";
+import { getEntry } from "astro:content";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
+const entry = await getEntry("landing", "main");
+const c = entry.data;
+---
+
+<Layout title={`${title} — ViFi`} description={description}>
+  <header class="border-b border-slate-800 bg-ink">
+    <nav
+      class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5"
+    >
+      <a href="/" class="flex items-center">
+        <img
+          src="/logo.png"
+          alt={c.nav.brand}
+          class="h-10 w-auto"
+        />
+      </a>
+      <div class="hidden gap-6 text-sm text-slate-400 md:flex">
+        <a href="/" class="hover:text-paper">Home</a>
+        <a href="/results" class="hover:text-paper">Results</a>
+        <a href="/roadmap" class="hover:text-paper">Roadmap</a>
+        <a href={`mailto:${c.links.contact_email}`} class="hover:text-paper">
+          Contact
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="mx-auto max-w-3xl px-6 py-16 md:py-24">
+    <article
+      class="prose prose-invert prose-headings:tracking-tight prose-h1:text-4xl prose-h1:md:text-5xl prose-h2:mt-12 prose-h2:text-2xl prose-h2:md:text-3xl prose-h3:text-xl prose-a:text-accent hover:prose-a:text-accentDark prose-strong:text-paper prose-code:text-accent prose-code:before:content-none prose-code:after:content-none prose-code:rounded prose-code:bg-slate-800 prose-code:px-1 prose-code:py-0.5 prose-pre:rounded-lg prose-pre:border prose-pre:border-slate-800 prose-pre:bg-slate-950 prose-blockquote:border-accent prose-blockquote:text-slate-300 prose-table:text-sm prose-th:text-paper prose-td:text-slate-300 prose-hr:border-slate-800 max-w-none"
+    >
+      <slot />
+    </article>
+
+    <p class="mt-16 border-t border-slate-800 pt-8 text-sm text-slate-500">
+      ←
+      <a href="/" class="text-accent hover:text-accentDark underline">
+        Back to vifi.health
+      </a>
+    </p>
+  </main>
+
+  <footer class="border-t border-slate-800 bg-ink px-6 py-12">
+    <div
+      class="mx-auto flex max-w-6xl flex-col gap-6 text-sm text-slate-500 md:flex-row md:justify-between"
+    >
+      <div class="space-y-2">
+        <p class="font-semibold text-paper">{c.footer.disclaimer_title}</p>
+        <p class="max-w-prose">{c.footer.disclaimer_body}</p>
+      </div>
+      <div class="space-y-1 md:text-right">
+        <p>{c.footer.copyright}</p>
+        <p>
+          <a href={`mailto:${c.links.contact_email}`} class="hover:text-paper">
+            {c.links.contact_email}
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+</Layout>
