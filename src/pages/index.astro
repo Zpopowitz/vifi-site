@@ -12,20 +12,13 @@ const c = entry.data;
     <nav
       class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5"
     >
-        <a href="#" class="flex items-center">
-      <img
-        src="/logo.png"
-        alt={c.nav.brand}
-        class="h-10 w-auto"
-      />
-    </a>      
-    <div class="hidden gap-6 text-sm text-slate-400 md:flex">
+      <a href="#" class="text-lg font-semibold tracking-tight text-paper">
+        {c.nav.brand}
+      </a>
+      <div class="hidden gap-6 text-sm text-slate-400 md:flex">
         {c.nav.items.map((item) => (
           <a href={item.href} class="hover:text-paper">{item.label}</a>
         ))}
-        <a href={c.links.github} class="hover:text-paper" rel="noopener">
-          GitHub
-        </a>
       </div>
     </nav>
   </header>
@@ -122,12 +115,11 @@ const c = entry.data;
       </p>
 
       <p class="mt-10 text-sm text-slate-500">
-        Full methodology, signal pipeline, calibration, and validation runs are open source —
+        For full methodology, signal pipeline, and validation runs:
         <a
-          href={c.links.github}
-          rel="noopener"
+          href={c.links.results}
           class="text-accent hover:text-accentDark underline"
-        >github.com/Zpopowitz/vifi-ml</a>.
+        >read the results</a>.
       </p>
     </div>
   </section>
@@ -311,11 +303,6 @@ const c = entry.data;
         <p>
           <a href={`mailto:${c.links.contact_email}`} class="hover:text-paper">
             {c.links.contact_email}
-          </a>
-        </p>
-        <p>
-          <a href={c.links.github} rel="noopener" class="hover:text-paper">
-            github.com/Zpopowitz/vifi-ml
           </a>
         </p>
       </div>

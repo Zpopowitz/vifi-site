@@ -11,9 +11,9 @@ const landing = defineCollection({
       description: z.string(),
     }),
     links: z.object({
-      github: z.string().url(),
-      results: z.string().url(),
-      roadmap: z.string().url(),
+      github: z.string(),
+      results: z.string(),
+      roadmap: z.string(),
       contact_email: z.string(),
       pilot_email: z.string(),
     }),

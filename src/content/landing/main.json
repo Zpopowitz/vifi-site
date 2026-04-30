@@ -29,9 +29,7 @@
     "heading_line1": "The hardware works.",
     "heading_line2": "It's been tested.",
     "paragraphs": [
-      "Four paired captures, single subject, single room. Each capture pairs raw signal data from a 2-chip ESP32-S3 array with continuous heart rate from a Polar H10 chest strap as the ground-truth reference.",
-      "For each holdout, the system was trained on the remaining sessions and scored on the held-out one — a leave-one-session-out evaluation that estimates how it generalizes to a session it has never seen.",
-      "Mean absolute error across the two scored holdouts: 3.89 and 4.41 beats per minute (mean 4.15). Per-window accuracy within ±5 bpm: 65–68%. PhaseBeat — the academic reference using $500 WiFi cards — reported 1.5 bpm. ViFi: 4.15 bpm on hardware that costs 20× less."
+      "4.15 bpm cross-session HR error against a Polar H10 chest-strap reference, on a 2-chip array of $25 ESP32-S3 boards. PhaseBeat — the academic reference using $500 WiFi cards — reported 1.5 bpm. ViFi: 4.15 bpm on 20× cheaper hardware."
     ],
     "results_link_text": "Full methodology, captures, and per-session breakdowns: RESULTS.md",
     "placeholder_caption": "[ photo of ESP32-S3 array + result chart goes here ]",
