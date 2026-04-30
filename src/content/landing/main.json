@@ -31,7 +31,7 @@
     "paragraphs": [
       "4.15 bpm cross-session HR error against a Polar H10 chest-strap reference, on a 2-chip array of $25 ESP32-S3 boards. PhaseBeat — the academic reference using $500 WiFi cards — reported 1.5 bpm. ViFi: 4.15 bpm on 20× cheaper hardware."
     ],
-    "results_link_text": "Full methodology, captures, and per-session breakdowns: RESULTS.md",
+    "results_link_text": "Full methodology, captures, and per-session breakdowns:",
     "placeholder_caption": "[ photo of ESP32-S3 array + result chart goes here ]",
     "comparison_rows": [
       {
@@ -157,7 +157,7 @@
         "body": "Run a clinical validation study at an academic medical center, compile the safety and accuracy data, file with the FDA. This is what makes ViFi legally usable for medical decisions in U.S. hospitals."
       }
     ],
-    "live_manifest_text": "Live shipped-vs-planned manifest: ROADMAP.md"
+    "live_manifest_text": "Live shipped-vs-planned manifest:"
   },
   "how_it_works": {
     "eyebrow": "How it works",
