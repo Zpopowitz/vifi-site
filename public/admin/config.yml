@@ -12,6 +12,8 @@ backend:
 publish_mode: simple
 display_url: https://vifi.health
 site_url: https://vifi.health
+media_folder: "public/uploads"
+public_folder: "/uploads"
 
 # Content lives in src/content/landing/main.json (validated by Astro
 # Content Collections). Decap edits this single file via a form.
