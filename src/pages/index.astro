@@ -1,109 +1,79 @@
 ---
+import { getEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 
-const headlineMae = "4.15 bpm";
-const hardwareCost = "~$50";
-const bedsideCost = "~$3,000";
-const githubUrl = "https://github.com/Zpopowitz/vifi-ml";
-const resultsUrl = "https://github.com/Zpopowitz/vifi-ml/blob/main/RESULTS.md";
-const roadmapUrl = "https://github.com/Zpopowitz/vifi-ml/blob/main/ROADMAP.md";
-const contactEmail = "zach@vifi.health";
-const pilotEmail = "pilots@vifi.health";
+const entry = await getEntry("landing", "main");
+const c = entry.data;
 ---
 
-<Layout>
+<Layout title={c.meta.title} description={c.meta.description}>
   <!-- ============================================================ HERO -->
   <header class="border-b border-slate-200">
     <nav
       class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5"
     >
       <a href="#" class="text-lg font-semibold tracking-tight">
-        ViFi
+        {c.nav.brand}
       </a>
       <div class="hidden gap-6 text-sm text-muted md:flex">
-        <a href="#problem" class="hover:text-ink">Problem</a>
-        <a href="#how" class="hover:text-ink">How it works</a>
-        <a href="#proof" class="hover:text-ink">Results</a>
-        <a href="#roadmap" class="hover:text-ink">Roadmap</a>
-        <a href="#hospitals" class="hover:text-ink">For hospitals</a>
-        <a href={githubUrl} class="hover:text-ink" rel="noopener">GitHub</a>
+        {c.nav.items.map((item) => (
+          <a href={item.href} class="hover:text-ink">{item.label}</a>
+        ))}
+        <a href={c.links.github} class="hover:text-ink" rel="noopener">
+          GitHub
+        </a>
       </div>
     </nav>
   </header>
 
   <section class="mx-auto max-w-6xl px-6 pt-20 pb-24 md:pt-28 md:pb-32">
     <p class="mb-6 text-sm font-medium uppercase tracking-widest text-accent">
-      Pre-clearance research prototype
+      {c.hero.eyebrow}
     </p>
     <h1
       class="text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl"
     >
-      Contactless patient vitals
+      {c.hero.headline_line1}
       <br class="hidden sm:block" />
-      from <span class="text-accent">$50</span> of WiFi hardware.
+      from <span class="text-accent">{c.hero.headline_highlight}</span>
+      {" "}
+      {c.hero.headline_line2}
     </h1>
     <p class="mt-8 max-w-2xl text-lg leading-relaxed text-slate-700 md:text-xl">
-      ViFi is building an FDA 510(k)-track contactless patient monitor that
-      runs on commodity ESP32 chips. We've shown
-      <strong>{headlineMae} cross-session heart-rate accuracy</strong>
-      on real hardware against a chest-strap reference — at roughly
-      <strong>1/20th the cost</strong> of the bedside monitors hospitals
-      deploy today.
+      {c.hero.tagline}
     </p>
     <div class="mt-10 flex flex-wrap gap-4">
       <a
-        href={`mailto:${pilotEmail}?subject=ViFi%20pilot%20inquiry`}
+        href={`mailto:${c.links.pilot_email}?subject=ViFi%20pilot%20inquiry`}
         class="rounded-md bg-ink px-6 py-3 text-sm font-medium text-paper transition hover:bg-slate-800"
       >
-        Pilot inquiry →
+        {c.hero.primary_cta}
       </a>
       <a
-        href={resultsUrl}
+        href={c.links.results}
         rel="noopener"
         class="rounded-md border border-slate-300 px-6 py-3 text-sm font-medium text-ink transition hover:border-ink"
       >
-        Read the methodology
+        {c.hero.secondary_cta}
       </a>
     </div>
 
-    <!-- headline stats -->
     <dl
       class="mt-16 grid grid-cols-2 gap-8 border-t border-slate-200 pt-10 md:grid-cols-4"
     >
-      <div>
-        <dt class="text-xs uppercase tracking-widest text-muted">
-          HR MAE (cross-session)
-        </dt>
-        <dd class="mt-2 text-3xl font-semibold tracking-tight">
-          {headlineMae}
-        </dd>
-      </div>
-      <div>
-        <dt class="text-xs uppercase tracking-widest text-muted">
-          Hardware cost / room
-        </dt>
-        <dd class="mt-2 text-3xl font-semibold tracking-tight">
-          {hardwareCost}
-        </dd>
-      </div>
-      <div>
-        <dt class="text-xs uppercase tracking-widest text-muted">
-          Validation
-        </dt>
-        <dd class="mt-2 text-3xl font-semibold tracking-tight">
-          LOSO × 4
-        </dd>
-        <p class="mt-1 text-xs text-muted">leave-one-session-out</p>
-      </div>
-      <div>
-        <dt class="text-xs uppercase tracking-widest text-muted">
-          Ground truth
-        </dt>
-        <dd class="mt-2 text-3xl font-semibold tracking-tight">
-          Polar H10
-        </dd>
-        <p class="mt-1 text-xs text-muted">chest-strap, BLE</p>
-      </div>
+      {c.hero.stats.map((stat) => (
+        <div>
+          <dt class="text-xs uppercase tracking-widest text-muted">
+            {stat.label}
+          </dt>
+          <dd class="mt-2 text-3xl font-semibold tracking-tight">
+            {stat.value}
+          </dd>
+          {stat.sublabel && (
+            <p class="mt-1 text-xs text-muted">{stat.sublabel}</p>
+          )}
+        </div>
+      ))}
     </dl>
   </section>
 
@@ -114,36 +84,17 @@ const pilotEmail = "pilots@vifi.health";
   >
     <div class="mx-auto max-w-3xl">
       <p class="mb-4 text-sm font-medium uppercase tracking-widest text-accent">
-        The problem
+        {c.problem.eyebrow}
       </p>
       <h2
         class="text-3xl font-bold leading-tight tracking-tight md:text-4xl"
       >
-        Hospital patients outside the ICU are unmonitored
-        <br class="hidden md:block" />
-        more than 23 hours per day.
+        {c.problem.heading}
       </h2>
       <div class="mt-8 space-y-6 text-lg leading-relaxed text-slate-700">
-        <p>
-          On general medical/surgical floors — roughly 700,000 U.S. beds —
-          the standard of care is a vitals reading every 4 to 8 hours by a
-          nurse. Between those readings, transient deteriorations go
-          unobserved: the fever spikes of brewing sepsis, the heart-rate
-          surges of a bacteremia flare, the respiratory depression that
-          precedes an opioid-related code.
-        </p>
-        <p>
-          Existing continuous-monitoring solutions cost roughly $3,000 per
-          bed and require wires, electrodes, or wearables that patients
-          remove, dislodge, or refuse. They're reserved for the ICU and
-          step-down units. The 80% of beds where most preventable
-          deteriorations actually happen get nothing.
-        </p>
+        {c.problem.paragraphs.map((p) => <p>{p}</p>)}
         <p class="border-l-2 border-accent pl-6 italic text-slate-600">
-          ViFi exists because the founder's mother spent 31 days getting
-          diagnosed with Staphylococcus bacteremia after four separate
-          visits, each time with vitals "stable" by the moment the nurse
-          arrived.
+          {c.problem.pullquote}
         </p>
       </div>
     </div>
@@ -153,63 +104,31 @@ const pilotEmail = "pilots@vifi.health";
   <section id="how" class="px-6 py-24">
     <div class="mx-auto max-w-5xl">
       <p class="mb-4 text-sm font-medium uppercase tracking-widest text-accent">
-        How it works
+        {c.how_it_works.eyebrow}
       </p>
       <h2
         class="text-3xl font-bold leading-tight tracking-tight md:text-4xl"
       >
-        WiFi packets bend around bodies. We listen to how.
+        {c.how_it_works.heading}
       </h2>
       <p class="mt-6 max-w-3xl text-lg leading-relaxed text-slate-700">
-        Two ESP32-S3 chips — one transmitting, one receiving — exchange
-        WiFi packets at roughly 70–100 packets per second. Each received
-        packet's per-subcarrier amplitude (Channel State Information, or
-        CSI) reflects the multipath environment in the room, including
-        chest-wall motion from breathing and heartbeat. No line of sight,
-        no contact, no patient compliance.
+        {c.how_it_works.intro}
       </p>
 
-      <!-- diagram -->
       <pre
         class="mt-12 overflow-x-auto rounded-lg border border-slate-200 bg-slate-50 p-6 text-xs leading-6 text-slate-700 md:text-sm"
-      >
-{`[ESP32-S3 TX] ─────── 192 subcarriers ───────► [ESP32-S3 RX]
-   antenna          (chest perturbs path)         antenna
-                                                     │
-                                                     │  USB serial @ 921600 baud
-                                                     ▼
-                                            csi_capture.py
-                                                     │
-                                                     ▼
-                                       first_capture_report.py
-                                                     │
-                                                     ▼
-                  HR / RR predictions  vs  Polar H10 ground truth`}
-      </pre>
+      >{c.how_it_works.diagram}</pre>
 
       <div class="mt-10 grid gap-8 md:grid-cols-2">
         <div>
-          <h3 class="text-lg font-semibold">Signal path</h3>
-          <ol
-            class="mt-3 list-decimal space-y-2 pl-5 text-slate-700"
-          >
-            <li>Variance-rank top-K subcarriers</li>
-            <li>Butterworth 0.1–3 Hz bandpass</li>
-            <li>4× zero-padded FFT</li>
-            <li>Parabolic peak refinement (cardiac and respiratory bands)</li>
-            <li>9-dimensional feature vector → XGBoost regressor</li>
+          <h3 class="text-lg font-semibold">{c.how_it_works.signal_path_title}</h3>
+          <ol class="mt-3 list-decimal space-y-2 pl-5 text-slate-700">
+            {c.how_it_works.signal_path_steps.map((step) => <li>{step}</li>)}
           </ol>
         </div>
         <div>
-          <h3 class="text-lg font-semibold">Where the science comes from</h3>
-          <p class="mt-3 text-slate-700">
-            The signal-processing approach is from peer-reviewed academic
-            work — PhaseBeat (INFOCOM 2017), FullBreathe (UbiComp 2018),
-            ResBeat (2020). ViFi's contribution is productizing it on
-            commodity ESP32-S3 hardware, with calibration, RF
-            fingerprinting, out-of-distribution suppression, and an
-            auditable prediction pipeline suitable for an FDA submission.
-          </p>
+          <h3 class="text-lg font-semibold">{c.how_it_works.prior_art_title}</h3>
+          <p class="mt-3 text-slate-700">{c.how_it_works.prior_art}</p>
         </div>
       </div>
     </div>
@@ -222,58 +141,38 @@ const pilotEmail = "pilots@vifi.health";
   >
     <div class="mx-auto max-w-5xl">
       <p class="mb-4 text-sm font-medium uppercase tracking-widest text-accent">
-        What we've shown
+        {c.proof.eyebrow}
       </p>
       <h2
         class="text-3xl font-bold leading-tight tracking-tight md:text-4xl"
       >
-        4.15 bpm cross-session HR accuracy
+        {c.proof.heading_line1}
         <br class="hidden md:block" />
-        on commodity hardware.
+        {c.proof.heading_line2}
       </h2>
 
       <div class="mt-10 grid gap-10 md:grid-cols-2">
         <div class="space-y-4 text-slate-700">
-          <p>
-            Four paired captures, single subject, single room. Each capture
-            pairs raw CSI from a 2-node ESP32-S3 array with continuous
-            heart rate from a Polar H10 chest strap as ground truth.
-          </p>
-          <p>
-            For each holdout we trained on the remaining sessions and
-            scored the held-out one — a leave-one-session-out evaluation
-            that estimates how the system generalizes to a session it has
-            never seen.
-          </p>
-          <p>
-            Mean absolute error across the two scored holdouts:
-            <strong>3.89 and 4.41 bpm</strong> (mean 4.15). Per-window
-            accuracy within ±5 bpm: 65–68%. PhaseBeat reported 1.5 bpm
-            using $500 Intel 5300 NICs in the same family of methods.
-          </p>
+          {c.proof.paragraphs.map((p) => <p>{p}</p>)}
           <p class="text-sm text-muted">
-            Full methodology, captures, and per-session breakdowns:{" "}
             <a
-              href={resultsUrl}
+              href={c.links.results}
               rel="noopener"
               class="text-accent hover:text-accentDark underline"
             >
-              RESULTS.md
-            </a>.
+              {c.proof.results_link_text}
+            </a>
           </p>
         </div>
 
         <div
           class="flex aspect-video items-center justify-center rounded-lg border border-dashed border-slate-300 bg-slate-50 text-sm text-muted"
         >
-          [ photo of ESP32-S3 array + result chart goes here ]
+          {c.proof.placeholder_caption}
         </div>
       </div>
 
-      <!-- Comparison table -->
-      <div
-        class="mt-16 overflow-hidden rounded-lg border border-slate-200"
-      >
+      <div class="mt-16 overflow-hidden rounded-lg border border-slate-200">
         <table class="w-full text-sm">
           <thead class="bg-slate-50 text-left text-muted">
             <tr>
@@ -284,26 +183,14 @@ const pilotEmail = "pilots@vifi.health";
             </tr>
           </thead>
           <tbody class="divide-y divide-slate-200 bg-white">
-            <tr>
-              <td class="px-4 py-3 font-medium">ViFi</td>
-              <td class="px-4 py-3">4.15 bpm</td>
-              <td class="px-4 py-3">2× ESP32-S3</td>
-              <td class="px-4 py-3">~$25</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-medium text-muted">PhaseBeat</td>
-              <td class="px-4 py-3 text-muted">1.5 bpm</td>
-              <td class="px-4 py-3 text-muted">2× Intel 5300 NIC</td>
-              <td class="px-4 py-3 text-muted">~$500</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-medium text-muted">
-                Bedside monitor
-              </td>
-              <td class="px-4 py-3 text-muted">≤ 1 bpm</td>
-              <td class="px-4 py-3 text-muted">ECG / SpO₂</td>
-              <td class="px-4 py-3 text-muted">~$3,000</td>
-            </tr>
+            {c.proof.comparison_rows.map((row) => (
+              <tr class={row.highlight ? "" : "text-muted"}>
+                <td class="px-4 py-3 font-medium">{row.system}</td>
+                <td class="px-4 py-3">{row.mae}</td>
+                <td class="px-4 py-3">{row.hardware}</td>
+                <td class="px-4 py-3">{row.per_node_cost}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -314,77 +201,41 @@ const pilotEmail = "pilots@vifi.health";
   <section id="roadmap" class="px-6 py-24">
     <div class="mx-auto max-w-3xl">
       <p class="mb-4 text-sm font-medium uppercase tracking-widest text-accent">
-        What we're building
+        {c.roadmap.eyebrow}
       </p>
       <h2
         class="text-3xl font-bold leading-tight tracking-tight md:text-4xl"
       >
-        FDA 510(k) Class II contactless vitals monitor.
+        {c.roadmap.heading}
       </h2>
       <p class="mt-6 text-lg leading-relaxed text-slate-700">
-        The current system is a pre-clearance research prototype, not a
-        medical device. Our target is FDA 510(k) Class II clearance for
-        heart rate and respiratory rate at roughly 1/20th the per-bed cost
-        of bedside monitors. The path:
+        {c.roadmap.intro}
       </p>
 
       <ol class="mt-10 space-y-6">
-        <li class="flex gap-4">
-          <span
-            class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-semibold text-white"
-            >1</span
-          >
-          <div>
-            <h3 class="font-semibold">
-              Multi-subject + multi-room validation
-            </h3>
-            <p class="mt-1 text-slate-700">
-              10+ subjects, 3+ rooms, varied HR ranges, paired RR captures
-              with a Vernier respiration belt. Target: cross-subject HR
-              MAE under 3 bpm.
-            </p>
-          </div>
-        </li>
-        <li class="flex gap-4">
-          <span
-            class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-semibold text-white"
-            >2</span
-          >
-          <div>
-            <h3 class="font-semibold">
-              Wellness-grade hospital pilot (pre-FDA)
-            </h3>
-            <p class="mt-1 text-slate-700">
-              5–10 medical/surgical beds, parallel to existing
-              standard-of-care monitoring, fully de-identified. No clinical
-              decision-making is made from ViFi data during the pilot.
-            </p>
-          </div>
-        </li>
-        <li class="flex gap-4">
-          <span
-            class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-semibold text-white"
-            >3</span
-          >
-          <div>
-            <h3 class="font-semibold">FDA 510(k) Class II submission</h3>
-            <p class="mt-1 text-slate-700">
-              ISO 13485 quality system, clinical validation study at an
-              academic medical center, predicate-device comparison filing.
-            </p>
-          </div>
-        </li>
+        {c.roadmap.steps.map((step, i) => (
+          <li class="flex gap-4">
+            <span
+              class="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-semibold text-white"
+            >
+              {i + 1}
+            </span>
+            <div>
+              <h3 class="font-semibold">{step.title}</h3>
+              <p class="mt-1 text-slate-700">{step.body}</p>
+            </div>
+          </li>
+        ))}
       </ol>
 
       <p class="mt-10 text-sm text-muted">
-        Live shipped-vs-planned manifest:{" "}
         <a
-          href={roadmapUrl}
+          href={c.links.roadmap}
           rel="noopener"
           class="text-accent hover:text-accentDark underline"
         >
-          ROADMAP.md
-        </a>.
+          {c.roadmap.live_manifest_text}
+        </a>
       </p>
     </div>
   </section>
@@ -398,36 +249,24 @@ const pilotEmail = "pilots@vifi.health";
       <p
         class="mb-4 text-sm font-medium uppercase tracking-widest text-accent"
       >
-        For hospitals
+        {c.hospitals.eyebrow}
       </p>
       <h2
         class="text-3xl font-bold leading-tight tracking-tight md:text-4xl"
       >
-        We're recruiting pilot sites.
+        {c.hospitals.heading}
       </h2>
       <div class="mt-8 space-y-5 text-lg leading-relaxed text-slate-200">
-        <p>
-          We're talking to medical/surgical floor leaders, biomedical
-          engineering teams, and clinical research offices interested in
-          hosting a wellness-grade pilot of contactless monitoring.
-        </p>
-        <p>A pilot looks like this:</p>
+        {c.hospitals.intro_paragraphs.map((p) => <p>{p}</p>)}
         <ul class="list-disc space-y-2 pl-6 text-slate-300">
-          <li>5–10 rooms instrumented with 2 ESP32-S3 boards each</li>
-          <li>30–90 day duration, IRB review where applicable</li>
-          <li>
-            Parallel to your existing standard-of-care monitoring; no
-            clinical decisions are made from ViFi data
-          </li>
-          <li>Fully de-identified, on-prem data handling</li>
-          <li>Output: a measurement study comparing ViFi against your existing reference</li>
+          {c.hospitals.pilot_bullets.map((b) => <li>{b}</li>)}
         </ul>
       </div>
       <a
-        href={`mailto:${pilotEmail}?subject=ViFi%20pilot%20inquiry`}
+        href={`mailto:${c.links.pilot_email}?subject=ViFi%20pilot%20inquiry`}
         class="mt-10 inline-block rounded-md bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-accentDark"
       >
-        Email pilots@vifi.health →
+        {c.hospitals.cta}
       </a>
     </div>
   </section>
@@ -436,49 +275,26 @@ const pilotEmail = "pilots@vifi.health";
   <section class="px-6 py-24">
     <div class="mx-auto max-w-3xl">
       <p class="mb-4 text-sm font-medium uppercase tracking-widest text-accent">
-        For everyone else
+        {c.open.eyebrow}
       </p>
       <h2
         class="text-3xl font-bold leading-tight tracking-tight md:text-4xl"
       >
-        The code is open.
+        {c.open.heading}
       </h2>
       <p class="mt-6 text-lg leading-relaxed text-slate-700">
-        ViFi is pre-incorporation. The DSP pipeline, training scripts, API,
-        dashboard, calibration, RF fingerprint, audit log, and 102-test
-        suite all live on GitHub. If you're a researcher, an engineer
-        curious about CSI-based sensing, a press contact, or just want to
-        know whether a $50 sensor really hits 4.15 bpm cross-session — read
-        the code and the methodology.
+        {c.open.body}
       </p>
       <div class="mt-8 flex flex-wrap gap-4 text-sm">
-        <a
-          href={githubUrl}
-          rel="noopener"
-          class="rounded-md border border-slate-300 px-4 py-2 transition hover:border-ink"
-        >
-          GitHub →
-        </a>
-        <a
-          href={resultsUrl}
-          rel="noopener"
-          class="rounded-md border border-slate-300 px-4 py-2 transition hover:border-ink"
-        >
-          RESULTS.md
-        </a>
-        <a
-          href={roadmapUrl}
-          rel="noopener"
-          class="rounded-md border border-slate-300 px-4 py-2 transition hover:border-ink"
-        >
-          ROADMAP.md
-        </a>
-        <a
-          href={`mailto:${contactEmail}`}
-          class="rounded-md border border-slate-300 px-4 py-2 transition hover:border-ink"
-        >
-          {contactEmail}
-        </a>
+        {c.open.buttons.map((btn) => (
+          <a
+            href={btn.href}
+            rel="noopener"
+            class="rounded-md border border-slate-300 px-4 py-2 transition hover:border-ink"
+          >
+            {btn.label}
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -489,28 +305,20 @@ const pilotEmail = "pilots@vifi.health";
       class="mx-auto flex max-w-6xl flex-col gap-6 text-sm text-muted md:flex-row md:justify-between"
     >
       <div class="space-y-2">
-        <p class="font-semibold text-ink">
-          ViFi is a pre-incorporation research project.
-        </p>
-        <p class="max-w-prose">
-          Not yet FDA-cleared. Research and development use only.
-          The current system is not a medical device and must not be used
-          for clinical decision-making.
-        </p>
+        <p class="font-semibold text-ink">{c.footer.disclaimer_title}</p>
+        <p class="max-w-prose">{c.footer.disclaimer_body}</p>
       </div>
       <div class="space-y-1 md:text-right">
-        <p>© 2026 Zach Popowitz</p>
+        <p>{c.footer.copyright}</p>
         <p>
-          <a
-            href={`mailto:${contactEmail}`}
-            class="hover:text-ink">{contactEmail}</a>
+          <a href={`mailto:${c.links.contact_email}`} class="hover:text-ink">
+            {c.links.contact_email}
+          </a>
         </p>
         <p>
-          <a
-            href={githubUrl}
-            rel="noopener"
-            class="hover:text-ink"
-            >github.com/Zpopowitz/vifi-ml</a>
+          <a href={c.links.github} rel="noopener" class="hover:text-ink">
+            github.com/Zpopowitz/vifi-ml
+          </a>
         </p>
       </div>
     </div>
