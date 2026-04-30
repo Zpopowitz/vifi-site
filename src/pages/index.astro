@@ -12,10 +12,14 @@ const c = entry.data;
     <nav
       class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5"
     >
-      <a href="#" class="text-lg font-semibold tracking-tight text-paper">
-        {c.nav.brand}
-      </a>
-      <div class="hidden gap-6 text-sm text-slate-400 md:flex">
+        <a href="#" class="flex items-center">
+      <img
+        src="/logo.png"
+        alt={c.nav.brand}
+        class="h-10 w-auto"
+      />
+    </a>      
+    <div class="hidden gap-6 text-sm text-slate-400 md:flex">
         {c.nav.items.map((item) => (
           <a href={item.href} class="hover:text-paper">{item.label}</a>
         ))}
