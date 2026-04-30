@@ -142,4 +142,4 @@ Add Polar H10 chest strap ($90) for HR ground truth during dataset collection.
 
 ## Engineering details
 
-The full code — DSP pipeline, capture orchestrator, training scripts, prediction service, calibration, RF fingerprinting, audit log, and 102-test suite — is kept private during pre-clearance development. **Available for technical review under NDA** for investors, hospital partners, and prospective collaborators. Email [zach@vifi.health](mailto:zach@vifi.health).
+The full code — DSP pipeline, capture orchestrator, training scripts, prediction service, calibration, RF fingerprinting, audit log, and 102-test suite — is kept private during pre-clearance development. **Available for technical review under NDA** for investors, hospital partners, and prospective collaborators. Email [popowitzzm@gmail.com](mailto:popowitzzm@gmail.com).
