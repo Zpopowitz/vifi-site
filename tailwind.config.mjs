@@ -5,10 +5,10 @@ export default {
     extend: {
       colors: {
         ink: "#0a1628",
-      paper: "#fafafa",
-      accent: "#34d399",
-      accentDark: "#059669",
-       muted: "#64748b",
+        paper: "#fafafa",
+        accent: "#34d399",
+        accentDark: "#059669",
+        muted: "#64748b",
           },
         },
       fontFamily: {
