@@ -69,6 +69,16 @@ const url = Astro.site
   body {
     text-rendering: optimizeLegibility;
   }
+  .ecg-trace {
+    animation: ecg-scroll 25s linear infinite;
+  }
+  @keyframes ecg-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ecg-trace { animation: none; }
+  }
 </style>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
