@@ -76,7 +76,26 @@ const c = entry.data;
             )}
           </div>
         ))}
-      </dl>
+      </dl>    
+<!-- ECG sweep, only on hero, after the stats -->
+    <div class="ecg-overlay pointer-events-none mt-16 flex h-40 items-center overflow-hidden md:h-56">
+      <svg
+        class="ecg-trace w-full flex-shrink-0"
+        viewBox="0 0 2000 100"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M 0 50 L 800 50 L 820 56 L 850 8 L 880 92 L 910 50 L 935 44 L 970 44 L 1000 50 L 2000 50"
+          pathLength="100"
+          stroke="#34d399"
+          stroke-width="1.5"
+          fill="none"
+          opacity="0.7"
+          stroke-linecap="round"
+          vector-effect="non-scaling-stroke"
+        />
+      </svg>
+    </div>
     </div>
   </section>
 
