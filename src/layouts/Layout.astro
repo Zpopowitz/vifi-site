@@ -44,16 +44,17 @@ const url = Astro.site
   <body class="font-sans">    <!-- Ambient ECG monitor trace -->
     <div class="ecg-overlay pointer-events-none fixed inset-x-0 top-1/2 z-40 flex h-32 -translate-y-1/2 items-center overflow-hidden md:h-48">
       <svg
-        class="ecg-trace w-[200%] flex-shrink-0"
+        class="ecg-trace w-full flex-shrink-0"
         viewBox="0 0 2000 100"
         preserveAspectRatio="none"
       >
         <path
           d="M 0 50 L 70 50 L 71 47 L 72 50 L 75 50 L 76 53 L 78 22 L 80 78 L 82 50 L 84 45 L 86 45 L 88 50 L 170 50 L 171 47 L 172 50 L 175 50 L 176 53 L 178 22 L 180 78 L 182 50 L 184 45 L 186 45 L 188 50 L 270 50 L 271 47 L 272 50 L 275 50 L 276 53 L 278 22 L 280 78 L 282 50 L 284 45 L 286 45 L 288 50 L 370 50 L 371 47 L 372 50 L 375 50 L 376 53 L 378 22 L 380 78 L 382 50 L 384 45 L 386 45 L 388 50 L 470 50 L 471 47 L 472 50 L 475 50 L 476 53 L 478 22 L 480 78 L 482 50 L 484 45 L 486 45 L 488 50 L 570 50 L 571 47 L 572 50 L 575 50 L 576 53 L 578 22 L 580 78 L 582 50 L 584 45 L 586 45 L 588 50 L 670 50 L 671 47 L 672 50 L 675 50 L 676 53 L 678 22 L 680 78 L 682 50 L 684 45 L 686 45 L 688 50 L 770 50 L 771 47 L 772 50 L 775 50 L 776 53 L 778 22 L 780 78 L 782 50 L 784 45 L 786 45 L 788 50 L 870 50 L 871 47 L 872 50 L 875 50 L 876 53 L 878 22 L 880 78 L 882 50 L 884 45 L 886 45 L 888 50 L 970 50 L 971 47 L 972 50 L 975 50 L 976 53 L 978 22 L 980 78 L 982 50 L 984 45 L 986 45 L 988 50 L 1070 50 L 1071 47 L 1072 50 L 1075 50 L 1076 53 L 1078 22 L 1080 78 L 1082 50 L 1084 45 L 1086 45 L 1088 50 L 1170 50 L 1171 47 L 1172 50 L 1175 50 L 1176 53 L 1178 22 L 1180 78 L 1182 50 L 1184 45 L 1186 45 L 1188 50 L 1270 50 L 1271 47 L 1272 50 L 1275 50 L 1276 53 L 1278 22 L 1280 78 L 1282 50 L 1284 45 L 1286 45 L 1288 50 L 1370 50 L 1371 47 L 1372 50 L 1375 50 L 1376 53 L 1378 22 L 1380 78 L 1382 50 L 1384 45 L 1386 45 L 1388 50 L 1470 50 L 1471 47 L 1472 50 L 1475 50 L 1476 53 L 1478 22 L 1480 78 L 1482 50 L 1484 45 L 1486 45 L 1488 50 L 1570 50 L 1571 47 L 1572 50 L 1575 50 L 1576 53 L 1578 22 L 1580 78 L 1582 50 L 1584 45 L 1586 45 L 1588 50 L 1670 50 L 1671 47 L 1672 50 L 1675 50 L 1676 53 L 1678 22 L 1680 78 L 1682 50 L 1684 45 L 1686 45 L 1688 50 L 1770 50 L 1771 47 L 1772 50 L 1775 50 L 1776 53 L 1778 22 L 1780 78 L 1782 50 L 1784 45 L 1786 45 L 1788 50 L 1870 50 L 1871 47 L 1872 50 L 1875 50 L 1876 53 L 1878 22 L 1880 78 L 1882 50 L 1884 45 L 1886 45 L 1888 50 L 1970 50 L 1971 47 L 1972 50 L 1975 50 L 1976 53 L 1978 22 L 1980 78 L 1982 50 L 1984 45 L 1986 45 L 1988 50 L 2000 50"
+          pathLength="100"
           stroke="#34d399"
-          stroke-width="1.2"
+          stroke-width="1.5"
           fill="none"
-          opacity="0.3"
+          opacity="0.6"
           vector-effect="non-scaling-stroke"
         />
       </svg>
@@ -69,16 +70,21 @@ const url = Astro.site
   body {
     text-rendering: optimizeLegibility;
   }
-  .ecg-trace {
-    animation: ecg-scroll 25s linear infinite;
-  }
-  @keyframes ecg-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .ecg-trace { animation: none; }
-  }
+.ecg-trace path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  filter: drop-shadow(0 0 3px rgba(52, 211, 153, 0.6));
+  animation: ecg-sweep 6s linear infinite;
+}
+@keyframes ecg-sweep {
+  0%   { stroke-dashoffset: 100; }
+  85%  { stroke-dashoffset: 0; }
+  90%  { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ecg-trace path { animation: none; stroke-dashoffset: 0; }
+}
 </style>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
