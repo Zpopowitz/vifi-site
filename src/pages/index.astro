@@ -129,24 +129,20 @@ const c = entry.data;
   </section>
 
   <!-- ============================================================ PROOF -->
-  <section
-    id="proof"
-    class="border-y border-slate-800 bg-slate-950 px-6 py-24"
-  >
-    <div class="mx-auto max-w-5xl">
-      <p class="mb-4 text-sm font-medium uppercase tracking-widest text-accent">
-        {c.proof.eyebrow}
-      </p>
-      <h2
-        class="text-3xl font-bold leading-tight tracking-tight text-paper md:text-4xl"
-      >
-        {c.proof.heading_line1}
-        <br class="hidden md:block" />
-        {c.proof.heading_line2}
-      </h2>
-
-      <div class="mt-10 grid gap-10 md:grid-cols-2">
-        <div class="space-y-4 text-slate-300">
+<section id="proof" data-animate class="border-y border-slate-800 bg-slate-950 px-6 py-24">
+  <div class="mx-auto max-w-5xl">
+    <div class="grid items-start gap-10 md:grid-cols-2">
+      <!-- LEFT: eyebrow + heading + body + link -->
+      <div>
+        <p class="mb-4 text-sm font-medium uppercase tracking-widest text-accent">
+          {c.proof.eyebrow}
+        </p>
+        <h2 class="text-3xl font-bold leading-tight tracking-tight text-paper md:text-4xl">
+          {c.proof.heading_line1}
+          <br class="hidden md:block" />
+          {c.proof.heading_line2}
+        </h2>
+        <div class="mt-8 space-y-4 text-slate-300">
           {c.proof.paragraphs.map((p) => <p>{p}</p>)}
           <p class="text-sm text-slate-500">
             <a
@@ -158,12 +154,15 @@ const c = entry.data;
             </a>
           </p>
         </div>
-          <img
-            src="/esp32-array.jpg"
-            alt="The ViFi ESP32-S3 array — two chips with dual-band antennas, used for the 4.15 bpm result"
-            class="self-start aspect-video w-full rounded-lg border border-slate-800 object-cover"
-          />
       </div>
+
+      <!-- RIGHT: photo, aligned to top -->
+      <img
+        src="/esp32-array.jpg"
+        alt="The ViFi ESP32-S3 array — two chips with dual-band antennas, the rig used for the 4.15 bpm result"
+        class="aspect-square w-full rounded-lg border border-slate-800 object-cover lg:aspect-[4/5]"
+      />
+    </div>
 
       <div class="mt-16 overflow-hidden rounded-lg border border-slate-800">
         <table class="w-full text-sm">
