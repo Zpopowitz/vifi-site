@@ -57,9 +57,13 @@ const url = Astro.site
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
   mix-blend-mode: screen;
-  filter: drop-shadow(0 0 3px rgba(52, 211, 153, 0.6));
   animation: ecg-sweep 5s linear infinite;
   animation-delay: 1s;
+}
+.ecg-trace path:nth-child(2) {
+  animation-delay: 3.5s;
+}
+@keyframes ecg-sweep {
 }
 @keyframes ecg-sweep {
   0%   { stroke-dashoffset: 100; }
