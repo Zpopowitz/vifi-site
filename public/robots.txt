@@ -2,7 +2,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.vifi.health/sitemap.xml
+Sitemap: https://vifi.health/sitemap.xml
 
 # AI search crawlers — explicitly allow
 User-agent: GPTBot
