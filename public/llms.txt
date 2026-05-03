@@ -23,9 +23,9 @@ Built on prior academic work — PhaseBeat (INFOCOM 2017), FullBreathe (UbiComp 
 
 ## Pages
 
-- [Home](https://www.vifi.health/): product overview, market context, and headline result
-- [Results](https://www.vifi.health/results): full real-hardware methodology, per-session breakdowns, comparison to academic reference
-- [Roadmap](https://www.vifi.health/roadmap): shipped vs planned capabilities, FDA 510(k) pathway, hardware bill of materials, regulatory plan
+- [Home](https://vifi.health/): product overview, market context, and headline result
+- [Results](https://vifi.health/results): full real-hardware methodology, per-session breakdowns, comparison to academic reference
+- [Roadmap](https://vifi.health/roadmap): shipped vs planned capabilities, FDA 510(k) pathway, hardware bill of materials, regulatory plan
 
 ## Roadmap (high-level)
 
@@ -45,6 +45,6 @@ ViFi targets vital signs from chest motion. Things ViFi does NOT and will not de
 
 ## Contact
 
-- Pilot inquiries: pilots@vifi.health
-- General: zach@vifi.health
+- Pilot inquiries: popowitzzm@gmail.com
+- General: popowitzzm@gmail.com
 - Engineering due diligence: available under NDA for investors and hospital partners
