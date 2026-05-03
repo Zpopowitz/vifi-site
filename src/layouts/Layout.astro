@@ -40,7 +40,67 @@ const url = Astro.site
     <!-- Webfont -->
     <link rel="preconnect" href="https://rsms.me/" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-  </head>
+    <!-- Structured data for search engines + AI -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ViFi",
+      "alternateName": "ViFi Health",
+      "url": "https://vifi.health",
+      "logo": "https://vifi.health/logo.png",
+      "description": "Contactless WiFi-based patient monitoring for hospital med-surg and telemetry floors. Pre-clearance research prototype targeting FDA 510(k) Class II clearance.",
+      "founder": {
+        "@type": "Person",
+        "name": "Zach Popowitz"
+      },
+      "foundingDate": "2026",
+      "industry": "Medical Devices",
+      "knowsAbout": [
+        "WiFi health monitoring",
+        "WiFi vital signs monitoring",
+        "WiFi heart rate monitor",
+        "WiFi-based vital signs",
+        "WiFi sensing for healthcare",
+        "WiFi sensor for hospitals",
+        "WiFi medical device",
+        "WiFi healthcare technology",
+        "RF sensing",
+        "RF health monitoring",
+        "radio frequency vital signs",
+        "RF-based patient monitoring",
+        "RF chest motion sensing",
+        "Channel State Information",
+        "CSI for vital signs",
+        "contactless patient monitoring",
+        "contactless health monitoring",
+        "contactless vital signs",
+        "non-invasive patient monitoring",
+        "non-contact health monitoring",
+        "ambient patient monitoring",
+        "wireless vital signs monitor",
+        "wireless patient monitoring",
+        "remote patient monitoring",
+        "continuous patient monitoring",
+        "continuous vital signs monitoring",
+        "bedside vital signs monitor alternative",
+        "hospital med-surg monitoring",
+        "telemetry floor monitoring",
+        "ESP32 vital signs",
+        "ESP32 health monitor",
+        "commodity hardware patient monitoring",
+        "FDA 510(k) Class II vital signs monitor",
+        "pre-clearance medical device research",
+        "digital health monitoring",
+        "healthtech",
+        "PhaseBeat",
+        "FullBreathe",
+        "ResBeat"
+      ],
+      "sameAs": [
+        "https://github.com/Zpopowitz"
+      ]
+    })} />
+  </head>  </head>
   <body class="font-sans">    <!-- Ambient ECG monitor trace -->
     <slot />
   </body>
