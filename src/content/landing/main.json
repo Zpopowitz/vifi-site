@@ -57,9 +57,9 @@
       }
     ]
   },
- "meta": {
-  "title": "Contactless Vital Signs Monitoring | ViFi",
-  "description": "ViFi is a WiFi-based health monitoring system for hospital patients. Contactless RF sensing measures heart rate and breathing rate continuously without wires, electrodes, or wearables. WiFi sensing for med-surg and telemetry monitoring at $50 per bed. Pre-FDA 510(k) clearance."
+  "meta": {
+    "title": "Contactless Vital Signs Monitoring | ViFi",
+    "description": "ViFi is a WiFi-based health monitoring system for hospital patients. Contactless RF sensing measures heart rate and breathing rate continuously without wires, electrodes, or wearables. WiFi sensing for med-surg and telemetry monitoring at $50 per bed. Pre-FDA 510(k) clearance."
   },
   "open": {
     "eyebrow": "Methodology and roadmap",
@@ -76,7 +76,7 @@
       },
       {
         "label": "Pilot Inquiry",
-        "href": "mailto:popowitzzm@gmail.com"
+        "href": "mailto:pilots@vifi.health"
       }
     ]
   },
@@ -94,14 +94,14 @@
       "Fully de-identified, on-premise data handling",
       "Output: a measurement study comparing ViFi against your existing reference"
     ],
-    "cta": "Email popowitzzm@gmail.com →"
+    "cta": "Email pilots@vifi.health →"
   },
   "links": {
     "github": "mailto:zach@vifi.health?subject=ViFi%20technical%20review%20request",
     "results": "/results",
     "roadmap": "/roadmap",
-    "contact_email": "popowitzzm@gmail.com",
-    "pilot_email": "popowitzzm@gmail.com"
+    "contact_email": "zach@vifi.health",
+    "pilot_email": "pilots@vifi.health"
   },
   "hero": {
     "eyebrow": "Pre-clearance research prototype",
