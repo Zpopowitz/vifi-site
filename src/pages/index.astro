@@ -8,15 +8,20 @@ const c = entry.data;
 
 <Layout title={c.meta.title} description={c.meta.description}>
   <!-- ============================================================ HERO -->
-<header class="sticky top-0 z-50 border-b border-slate-800 bg-ink">
+<header
+  id="site-header"
+  class="sticky top-0 z-50 border-b border-slate-800 bg-ink transition-all duration-200"
+>
     <nav
-      class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5"
+      id="site-nav"
+      class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 transition-all duration-200"
     >
       <a href="#" class="flex items-center">
         <img
+          id="site-logo"
           src="/logo.png"
           alt={c.nav.brand}
-          class="h-10 w-auto"
+          class="h-10 w-auto transition-all duration-200"
         />
       </a>
 
@@ -65,7 +70,36 @@ const c = entry.data;
         });
       });
     </script>
-  </header>
+      <script is:inline>
+      const header = document.getElementById('site-header');
+      const nav = document.getElementById('site-nav');
+      const logo = document.getElementById('site-logo');
+      const onScroll = () => {
+        if (window.scrollY > 20) {
+          header?.classList.add('is-scrolled');
+        } else {
+          header?.classList.remove('is-scrolled');
+        }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    </script>
+
+    <style is:global>
+      #site-header.is-scrolled {
+        background-color: rgba(10, 22, 40, 0.75);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      #site-header.is-scrolled #site-nav {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+      #site-header.is-scrolled #site-logo {
+        height: 1.75rem;
+      }
+    </style>
+</header>
 
   <section class="bg-ink px-6 pt-20 pb-24 md:pt-28 md:pb-32">
     <div class="mx-auto max-w-6xl">
