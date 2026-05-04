@@ -115,6 +115,13 @@ const url = Astro.site
 <style is:global>
   html {
     scroll-behavior: smooth;
+    /* Suppress the transient horizontal scrollbar caused by data-animate
+       slide-in transforms (translateX ±3rem). Nothing on the site needs
+       to scroll horizontally; tables that overflow on narrow viewports
+       have their own overflow-x:auto wrappers. `clip` is preferred over
+       `hidden` so it doesn't establish a new scroll container, which
+       would break the sticky header. */
+    overflow-x: clip;
   }
   body {
     text-rendering: optimizeLegibility;
