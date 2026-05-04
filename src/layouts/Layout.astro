@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 interface Props {
   title?: string;
   description?: string;
@@ -40,6 +42,10 @@ const url = Astro.site
     <!-- Webfont -->
     <link rel="preconnect" href="https://rsms.me/" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+    <!-- Astro View Transitions: cross-fade between pages and keep
+         transition:persist elements (header, footer) mounted across nav. -->
+    <ViewTransitions />
     <!-- Structured data for search engines + AI -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
