@@ -74,6 +74,7 @@ const landing = defineCollection({
       heading: z.string(),
       intro: z.string(),
       steps: z.array(z.object({
+        date: z.string().optional(),
         title: z.string(),
         body: z.string(),
       })),
@@ -85,15 +86,6 @@ const landing = defineCollection({
       intro_paragraphs: z.array(z.string()),
       pilot_bullets: z.array(z.string()),
       cta: z.string(),
-    }),
-    open: z.object({
-      eyebrow: z.string(),
-      heading: z.string(),
-      body: z.string(),
-      buttons: z.array(z.object({
-        label: z.string(),
-        href: z.string(),
-      })),
     }),
     footer: z.object({
       disclaimer_title: z.string(),

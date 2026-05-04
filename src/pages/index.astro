@@ -226,7 +226,12 @@ const c = entry.data;
               {i + 1}
             </span>
             <div>
-              <h3 class="font-semibold text-paper">{step.title}</h3>
+              {step.date && (
+                <p class="text-xs font-medium uppercase tracking-widest text-accent">
+                  {step.date}
+                </p>
+              )}
+              <h3 class="mt-1 font-semibold text-paper">{step.title}</h3>
               <p class="mt-1 text-slate-300">{step.body}</p>
             </div>
           </li>
@@ -272,34 +277,6 @@ const c = entry.data;
       >
         {c.hospitals.cta}
       </a>
-    </div>
-  </section>
-
-  <!-- ============================================================ EVERYONE ELSE -->
-  <section class="bg-ink px-6 py-24">
-    <div class="mx-auto max-w-3xl">
-      <p class="mb-4 text-sm font-medium uppercase tracking-widest text-accent">
-        {c.open.eyebrow}
-      </p>
-      <h2
-        class="text-3xl font-bold leading-tight tracking-tight text-paper md:text-4xl"
-      >
-        {c.open.heading}
-      </h2>
-      <p class="mt-6 text-lg leading-relaxed text-slate-300">
-        {c.open.body}
-      </p>
-      <div class="mt-8 flex flex-wrap gap-4 text-sm">
-        {c.open.buttons.map((btn) => (
-          <a
-            href={btn.href}
-            rel="noopener"
-            class="rounded-md border border-slate-700 px-4 py-2 text-paper transition hover:border-accent"
-          >
-            {btn.label}
-          </a>
-        ))}
-      </div>
     </div>
   </section>
 
