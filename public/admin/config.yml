@@ -144,6 +144,7 @@ collections:
                 name: steps
                 widget: list
                 fields:
+                  - { label: "Date / target window", name: date, widget: string, required: false }
                   - { label: "Title", name: title, widget: string }
                   - { label: "Body",  name: body,  widget: text }
               - { label: "Live manifest link text", name: live_manifest_text, widget: string }
@@ -159,22 +160,6 @@ collections:
               - { label: "Intro paragraphs", name: intro_paragraphs, widget: list, field: { label: "Paragraph", name: p, widget: text } }
               - { label: "Pilot bullet points", name: pilot_bullets, widget: list, field: { label: "Bullet", name: b, widget: string } }
               - { label: "CTA button text", name: cta, widget: string }
-
-          # ---- Open / for everyone else ----
-          - label: "Open source / for everyone else"
-            name: open
-            widget: object
-            collapsed: true
-            fields:
-              - { label: "Eyebrow", name: eyebrow, widget: string }
-              - { label: "Heading", name: heading, widget: string }
-              - { label: "Body paragraph", name: body, widget: text }
-              - label: "Buttons"
-                name: buttons
-                widget: list
-                fields:
-                  - { label: "Label", name: label, widget: string }
-                  - { label: "URL",   name: href,  widget: string }
 
           # ---- Footer ----
           - label: "Footer"

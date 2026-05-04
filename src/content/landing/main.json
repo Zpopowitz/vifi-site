@@ -15,6 +15,10 @@
         "href": "/roadmap"
       },
       {
+        "label": "Pilot",
+        "href": "mailto:pilots@vifi.health?subject=ViFi%20pilot%20inquiry"
+      },
+      {
         "label": "Contact",
         "href": "mailto:zach@vifi.health"
       }
@@ -56,25 +60,6 @@
   "meta": {
     "title": "Contactless Vital Signs Monitoring | ViFi",
     "description": "ViFi is a WiFi-based health monitoring system for hospital patients. Contactless RF sensing measures heart rate and breathing rate continuously without wires, electrodes, or wearables. WiFi sensing for med-surg and telemetry monitoring at $50 per bed. Pre-FDA 510(k) clearance."
-  },
-  "open": {
-    "eyebrow": "Methodology and roadmap",
-    "heading": "Read the details.",
-    "body": "ViFi's full real-hardware methodology and product roadmap are public. The engineering work — capture pipeline, training scripts, prediction service, calibration, audit log, and 102-test suite — is kept private during pre-clearance development. Available for technical review under NDA for investors, hospital partners, and prospective collaborators.",
-    "buttons": [
-      {
-        "label": "Read the methodology →",
-        "href": "/results"
-      },
-      {
-        "label": "Read the roadmap →",
-        "href": "/roadmap"
-      },
-      {
-        "label": "Pilot Inquiry →",
-        "href": "mailto:pilots@vifi.health"
-      }
-    ]
   },
   "hospitals": {
     "eyebrow": "For hospitals",
@@ -138,19 +123,22 @@
   "roadmap": {
     "eyebrow": "What's next",
     "heading": "The path to a hospital-approved medical device.",
-    "intro": "Today ViFi is a pre-clearance research prototype, not a medical device. From here, three steps stand between this and a contactless monitor running over a hospital bed:",
+    "intro": "Today ViFi is a pre-clearance research prototype, not a medical device. Three dated milestones stand between this and a contactless monitor running over a hospital bed:",
     "steps": [
       {
-        "title": "Prove it works for everyone, in any room",
-        "body": "Test ViFi on 10+ different people, in 3+ different rooms, against the same chest-strap reference. Goal: under 3 bpm error across subjects the system has never seen."
+        "date": "Summer 2026",
+        "title": "Multi-subject, multi-room HR validation",
+        "body": "Validate heart rate across 10+ people in 3+ rooms against the same chest-strap reference. Target: under 3 bpm cross-subject MAE on subjects the system has never seen."
       },
       {
+        "date": "Spring 2027 (funding-dependent)",
         "title": "First hospital pilot",
-        "body": "Install ViFi in 5–10 hospital rooms alongside the existing standard of care. Compare what ViFi sees with what the hospital sees. Patient data stays on-site and de-identified; no clinical decisions are made from ViFi during the pilot."
+        "body": "Wellness-grade install in 5–10 rooms alongside the existing standard of care. Patient data stays on-site and de-identified; no clinical decisions are made from ViFi during the pilot."
       },
       {
-        "title": "FDA approval",
-        "body": "Run a clinical validation study at an academic medical center, compile the safety and accuracy data, file with the FDA. This is what makes ViFi legally usable for medical decisions in U.S. hospitals."
+        "date": "Late 2027 (funding-dependent)",
+        "title": "FDA 510(k) clearance",
+        "body": "Clinical validation study at an academic medical center, then file safety + accuracy data for FDA 510(k) Class II clearance. This is what makes ViFi legally usable for medical decisions in U.S. hospitals."
       }
     ],
     "live_manifest_text": "Live shipped-vs-planned manifest: read our roadmap"
