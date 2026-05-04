@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import Analytics from "@vercel/analytics/astro";
 
 interface Props {
   title?: string;
@@ -109,6 +110,7 @@ const url = Astro.site
   </head>
   <body class="font-sans">    <!-- Ambient ECG monitor trace -->
     <slot />
+    <Analytics />
   </body>
 </html>
 
