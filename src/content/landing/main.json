@@ -16,11 +16,11 @@
       },
       {
         "label": "Pilot",
-        "href": "mailto:pilots@vifi.health?subject=ViFi%20pilot%20inquiry"
+        "href": "/pilots"
       },
       {
         "label": "Contact",
-        "href": "mailto:zach@vifi.health"
+        "href": "mailto:hello@vifi.health"
       }
     ]
   },
@@ -75,13 +75,13 @@
       "Fully de-identified, on-premise data handling",
       "Output: a measurement study comparing ViFi against your existing reference"
     ],
-    "cta": "Email pilots@vifi.health →"
+    "cta": "Start a pilot inquiry →"
   },
   "links": {
-    "github": "mailto:zach@vifi.health?subject=ViFi%20technical%20review%20request",
+    "github": "mailto:hello@vifi.health?subject=ViFi%20technical%20review%20request",
     "results": "/results",
     "roadmap": "/roadmap",
-    "contact_email": "zach@vifi.health",
+    "contact_email": "hello@vifi.health",
     "pilot_email": "pilots@vifi.health"
   },
   "hero": {
