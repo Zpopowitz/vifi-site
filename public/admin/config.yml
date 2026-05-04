@@ -47,6 +47,7 @@ collections:
               - { label: "ROADMAP.md URL",    name: roadmap,        widget: string }
               - { label: "Contact email",     name: contact_email,  widget: string }
               - { label: "Pilot inquiry email", name: pilot_email,  widget: string }
+              - { label: "LinkedIn URL",      name: linkedin,       widget: string, required: false }
 
           # ---- Nav ----
           - label: "Nav bar"

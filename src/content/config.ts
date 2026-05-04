@@ -16,6 +16,7 @@ const landing = defineCollection({
       roadmap: z.string(),
       contact_email: z.string(),
       pilot_email: z.string(),
+      linkedin: z.string().optional(),
     }),
     nav: z.object({
       brand: z.string(),
