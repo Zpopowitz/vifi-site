@@ -103,4 +103,41 @@ const landing = defineCollection({
   }),
 });
 
-export const collections = { landing };
+// Subpage schema: each page has metadata, a title, an optional intro
+// paragraph, and an ordered list of sections. Each section is an h2 with
+// a list of typed content blocks (paragraph, subheading, bulleted_list,
+// ordered_list, table). Decap CMS edits these JSON files via the admin UI.
+const block = z.object({
+  type: z.enum([
+    "paragraph",
+    "subheading",
+    "bulleted_list",
+    "ordered_list",
+    "table",
+  ]),
+  text: z.string().optional(),
+  items: z.array(z.string()).optional(),
+  headers: z.array(z.string()).optional(),
+  rows: z.array(z.array(z.string())).optional(),
+});
+
+const subpageSchema = z.object({
+  meta: z.object({
+    title: z.string(),
+    description: z.string(),
+  }),
+  title: z.string(),
+  intro: z.string().optional(),
+  sections: z.array(
+    z.object({
+      id: z.string().optional(),
+      heading: z.string(),
+      blocks: z.array(block),
+    }),
+  ),
+});
+
+const results = defineCollection({ type: "data", schema: subpageSchema });
+const roadmap = defineCollection({ type: "data", schema: subpageSchema });
+
+export const collections = { landing, results, roadmap };
