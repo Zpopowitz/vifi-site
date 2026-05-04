@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "title": "Terms of Use",
+    "description": "Terms governing your use of vifi.health. ViFi is a pre-clearance research project. The Site is informational; nothing on it is medical advice or a medical device, and the system described is not yet FDA-cleared."
+  },
+  "title": "Terms of Use",
+  "intro": "Last updated May 2026. By accessing vifi.health you agree to these Terms. If you do not agree, please do not use the Site.",
+  "sections": [
+    {
+      "id": "purpose",
+      "heading": "Purpose of the site",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "**vifi.health** (the \"Site\") is a public marketing and research-status page for ViFi, a contactless WiFi-based vital-signs research project. The Site is provided for informational purposes only. It is not a clinical product, not a patient portal, and not a medical device interface."
+        }
+      ]
+    },
+    {
+      "id": "not-medical",
+      "heading": "Not medical advice; not a medical device",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "ViFi is a **pre-clearance research project**. The system described on the Site has not been cleared, authorized, or approved by the U.S. Food and Drug Administration or any other regulator, and is **not** a medical device today."
+        },
+        {
+          "type": "paragraph",
+          "text": "Nothing on the Site is medical advice, a diagnosis, a recommendation for treatment, or a substitute for professional medical judgement. Do not rely on any information on the Site to make clinical decisions. Always consult a qualified clinician for medical questions."
+        }
+      ]
+    },
+    {
+      "id": "research-claims",
+      "heading": "Research-grade results",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Performance numbers, methodology, and roadmap timelines on the Site reflect research-grade results from a small in-house dataset and are subject to revision as additional validation work is completed. Forward-looking statements (target dates, expected accuracy improvements, regulatory milestones) are estimates, not commitments, and may change."
+        }
+      ]
+    },
+    {
+      "id": "ip",
+      "heading": "Intellectual property",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "All content on the Site — including text, images, diagrams, and logos — is owned by ViFi or its licensors and is protected by copyright and trademark law. You may view and share links to the Site, and quote short passages with attribution, for non-commercial informational purposes. Republishing substantial portions, or any commercial use, requires prior written permission."
+        }
+      ]
+    },
+    {
+      "id": "third-party-links",
+      "heading": "Third-party links",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Site links to academic papers and external services. ViFi does not control those sites and is not responsible for their content, policies, or availability. Following an external link is at your own discretion."
+        }
+      ]
+    },
+    {
+      "id": "warranty",
+      "heading": "No warranty",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Site is provided **\"as is\" and \"as available\"** without warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, accuracy, completeness, non-infringement, or uninterrupted availability. ViFi does not warrant that the Site will be error-free or that defects will be corrected."
+        }
+      ]
+    },
+    {
+      "id": "liability",
+      "heading": "Limitation of liability",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To the fullest extent permitted by law, ViFi and its founder, contributors, and service providers will not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits, revenue, data, or goodwill, arising from or related to your use of the Site, even if advised of the possibility of such damages. Direct damages, if any, are capped at one hundred U.S. dollars ($100)."
+        }
+      ]
+    },
+    {
+      "id": "pilots",
+      "heading": "Hospital pilots and collaborations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Any pilot deployment, evaluation, or collaboration involving the ViFi system will be governed by a separate written agreement that supersedes these Terms with respect to that engagement. Nothing on the Site constitutes an offer to provide a clinical product or service."
+        }
+      ]
+    },
+    {
+      "id": "governing-law",
+      "heading": "Governing law",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "These Terms are governed by the laws of the State of Delaware, without regard to its conflict-of-laws principles. Any dispute arising from the Site or these Terms will be brought exclusively in the state or federal courts located in Delaware, and you consent to the personal jurisdiction of those courts."
+        }
+      ]
+    },
+    {
+      "id": "changes",
+      "heading": "Changes to these terms",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "We may update these Terms as the project evolves. The \"Last updated\" date at the top reflects the most recent revision. Continued use of the Site after a change constitutes acceptance of the updated Terms."
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "heading": "Contact",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Questions about these Terms: [zach@vifi.health](mailto:zach@vifi.health)."
+        }
+      ]
+    }
+  ]
+}
