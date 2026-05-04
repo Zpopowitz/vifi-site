@@ -131,6 +131,7 @@ const subpageSchema = z.object({
   sections: z.array(
     z.object({
       id: z.string().optional(),
+      eyebrow: z.string().optional(),
       heading: z.string(),
       blocks: z.array(block),
     }),
