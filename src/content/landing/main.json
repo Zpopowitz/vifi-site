@@ -4,23 +4,23 @@
     "items": [
       {
         "label": "Why",
-        "href": "#problem"
+        "href": "/#problem"
       },
       {
         "label": "How it works",
-        "href": "#how"
+        "href": "/#how"
       },
       {
         "label": "Results",
-        "href": "#proof"
+        "href": "/results"
       },
       {
         "label": "Roadmap",
-        "href": "#roadmap"
+        "href": "/roadmap"
       },
       {
         "label": "For hospitals",
-        "href": "#hospitals"
+        "href": "/#hospitals"
       }
     ]
   },
