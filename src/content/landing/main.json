@@ -3,12 +3,8 @@
     "brand": "ViFi",
     "items": [
       {
-        "label": "Why",
-        "href": "/#problem"
-      },
-      {
-        "label": "How it works",
-        "href": "/#how"
+        "label": "Home",
+        "href": "/"
       },
       {
         "label": "Results",
@@ -19,8 +15,8 @@
         "href": "/roadmap"
       },
       {
-        "label": "For hospitals",
-        "href": "/#hospitals"
+        "label": "Contact",
+        "href": "mailto:zach@vifi.health"
       }
     ]
   },

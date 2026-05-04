@@ -169,18 +169,22 @@
       ]
     },
     {
-      "id": "does-not-prove",
-      "heading": "What this does NOT prove",
+      "id": "scope",
+      "heading": "Scope of this study",
       "blocks": [
+        {
+          "type": "paragraph",
+          "text": "These are the boundaries of the current dataset and the milestones queued up to extend each one. The pipeline and tooling are designed to scale into all of them — the work ahead is data collection and validation."
+        },
         {
           "type": "bulleted_list",
           "items": [
-            "**Multi-subject generalization.** All captures are the founder. A new subject is not yet validated.",
-            "**Multi-room generalization.** All captures in one room. Multipath geometry is part of the learned features.",
-            "**Performance under motion.** Subject was stationary. Walking, fidgeting, repositioning will hurt.",
-            "**Robustness across HR ranges.** Subject HR was 80–100 bpm. Resting (60), elevated (130), and arrhythmia have not been tested.",
-            "**Subject-level held-out validation.** Sessions are independent recordings of the same subject, not independent subjects. Subject-level holdout requires multi-subject data.",
-            "**Clinical-grade reliability.** This is a preprint-grade result, not a regulatory submission. FDA 510(k) requires its own clinical study."
+            "**Multi-subject coverage.** Captures so far are from the founder. Multi-subject validation across 10+ participants is the next milestone — see the [roadmap](/roadmap).",
+            "**Multi-room coverage.** All captures in one room. Expanding to additional rooms is on the immediate roadmap.",
+            "**Subjects in motion.** Validated for stationary subjects today. Walking, fidgeting, and repositioning are next on the test plan.",
+            "**Heart-rate range.** Subject HR was 80–100 bpm. Resting (~60), elevated (~130), and arrhythmia ranges are upcoming test conditions.",
+            "**Cross-subject held-out validation.** Sessions are independent recordings of the same subject; cross-subject holdout arrives with the multi-subject dataset.",
+            "**Regulatory grade.** This is a research-grade result. The path to FDA 510(k) Class II clearance is mapped on the [roadmap](/roadmap)."
           ]
         }
       ]
@@ -206,8 +210,8 @@
       ]
     },
     {
-      "id": "roadmap-to-lower-mae",
-      "heading": "Roadmap to lower MAE",
+      "id": "path-to-higher-accuracy",
+      "heading": "Path to higher accuracy",
       "blocks": [
         {
           "type": "table",
