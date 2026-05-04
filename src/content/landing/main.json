@@ -82,7 +82,8 @@
     "results": "/results",
     "roadmap": "/roadmap",
     "contact_email": "hello@vifi.health",
-    "pilot_email": "pilots@vifi.health"
+    "pilot_email": "pilots@vifi.health",
+    "linkedin": "https://www.linkedin.com/company/vifi-health/"
   },
   "hero": {
     "eyebrow": "Pre-clearance research prototype",

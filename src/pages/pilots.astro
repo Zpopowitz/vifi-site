@@ -99,23 +99,33 @@ const meta = {
           <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
           <input type="hidden" name="_subject" value="ViFi pilot inquiry" />
 
+          <p class="text-xs text-slate-500">
+            Fields marked <span class="text-red-400">*</span> are required.
+          </p>
+
           <div class="grid gap-6 md:grid-cols-2">
             <label class="block">
-              <span class="text-sm font-medium text-slate-300">Your name</span>
+              <span class="text-sm font-medium text-slate-300">
+                Your name <span class="text-red-400" aria-hidden="true">*</span>
+              </span>
               <input
                 type="text"
                 name="name"
                 required
+                aria-required="true"
                 autocomplete="name"
                 class="mt-2 w-full rounded-md border border-slate-700 bg-slate-950 px-4 py-3 text-paper placeholder:text-slate-600 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
               />
             </label>
             <label class="block">
-              <span class="text-sm font-medium text-slate-300">Email</span>
+              <span class="text-sm font-medium text-slate-300">
+                Email <span class="text-red-400" aria-hidden="true">*</span>
+              </span>
               <input
                 type="email"
                 name="email"
                 required
+                aria-required="true"
                 autocomplete="email"
                 inputmode="email"
                 class="mt-2 w-full rounded-md border border-slate-700 bg-slate-950 px-4 py-3 text-paper placeholder:text-slate-600 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
@@ -170,7 +180,7 @@ const meta = {
           </div>
 
           <label class="block">
-            <span class="text-sm font-medium text-slate-300">Existing monitoring (optional)</span>
+            <span class="text-sm font-medium text-slate-300">Existing monitoring</span>
             <input
               type="text"
               name="existing_monitoring"

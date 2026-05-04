@@ -70,23 +70,33 @@ const meta = {
           <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
           <input type="hidden" name="_subject" value="ViFi contact inquiry" />
 
+          <p class="text-xs text-slate-500">
+            Fields marked <span class="text-red-400">*</span> are required.
+          </p>
+
           <div class="grid gap-6 md:grid-cols-2">
             <label class="block">
-              <span class="text-sm font-medium text-slate-300">Your name</span>
+              <span class="text-sm font-medium text-slate-300">
+                Your name <span class="text-red-400" aria-hidden="true">*</span>
+              </span>
               <input
                 type="text"
                 name="name"
                 required
+                aria-required="true"
                 autocomplete="name"
                 class="mt-2 w-full rounded-md border border-slate-700 bg-ink px-4 py-3 text-paper placeholder:text-slate-600 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
               />
             </label>
             <label class="block">
-              <span class="text-sm font-medium text-slate-300">Email</span>
+              <span class="text-sm font-medium text-slate-300">
+                Email <span class="text-red-400" aria-hidden="true">*</span>
+              </span>
               <input
                 type="email"
                 name="email"
                 required
+                aria-required="true"
                 autocomplete="email"
                 inputmode="email"
                 class="mt-2 w-full rounded-md border border-slate-700 bg-ink px-4 py-3 text-paper placeholder:text-slate-600 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
@@ -95,10 +105,13 @@ const meta = {
           </div>
 
           <label class="block">
-            <span class="text-sm font-medium text-slate-300">Reason for contacting</span>
+            <span class="text-sm font-medium text-slate-300">
+              Reason for contacting <span class="text-red-400" aria-hidden="true">*</span>
+            </span>
             <select
               name="reason"
               required
+              aria-required="true"
               class="mt-2 w-full rounded-md border border-slate-700 bg-ink px-4 py-3 text-paper focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
             >
               <option value="" disabled selected>Select one…</option>
@@ -107,11 +120,14 @@ const meta = {
           </label>
 
           <label class="block">
-            <span class="text-sm font-medium text-slate-300">Note</span>
+            <span class="text-sm font-medium text-slate-300">
+              Note <span class="text-red-400" aria-hidden="true">*</span>
+            </span>
             <textarea
               name="note"
               rows="6"
               required
+              aria-required="true"
               autocomplete="off"
               placeholder="A few sentences about what's on your mind."
               class="mt-2 w-full rounded-md border border-slate-700 bg-ink px-4 py-3 text-paper placeholder:text-slate-600 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
@@ -152,6 +168,20 @@ const meta = {
             Email us →
           </a>
         </div>
+      )}
+
+      {c.links.linkedin && (
+        <p class="mt-10 text-sm text-slate-500">
+          You can also follow ViFi on
+          <a
+            href={c.links.linkedin}
+            target="_blank"
+            rel="noopener"
+            class="text-accent underline hover:text-paper"
+          >
+            LinkedIn
+          </a>.
+        </p>
       )}
     </div>
   </section>

@@ -21,6 +21,19 @@ const c = landing.data;
         </a>
       </p>
       <p class="flex flex-wrap gap-x-3 md:justify-end">
+        {c.links.linkedin && (
+          <>
+            <a
+              href={c.links.linkedin}
+              target="_blank"
+              rel="noopener"
+              class="hover:text-paper"
+            >
+              LinkedIn
+            </a>
+            <span aria-hidden="true">·</span>
+          </>
+        )}
         <a href="/privacy" class="hover:text-paper">Privacy</a>
         <span aria-hidden="true">·</span>
         <a href="/terms" class="hover:text-paper">Terms</a>
