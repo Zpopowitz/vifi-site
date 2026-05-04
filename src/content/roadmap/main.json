@@ -37,7 +37,7 @@
     },
     {
       "id": "in-flight",
-      "heading": "In flight (next 4 weeks)",
+      "heading": "In flight (May 2026)",
       "blocks": [
         {
           "type": "table",
@@ -53,7 +53,7 @@
     },
     {
       "id": "stage-2",
-      "heading": "Stage 2 (months 2–4)",
+      "heading": "Stage 2 (Summer 2026)",
       "blocks": [
         {
           "type": "table",
@@ -69,7 +69,7 @@
     },
     {
       "id": "stage-3",
-      "heading": "Stage 3 (months 4–8)",
+      "heading": "Stage 3 (Fall 2026 – Winter 2027)",
       "blocks": [
         {
           "type": "table",
@@ -84,7 +84,7 @@
     },
     {
       "id": "stage-4",
-      "heading": "Stage 4 (months 6–12)",
+      "heading": "Stage 4 (Winter 2026 – Spring 2027)",
       "blocks": [
         {
           "type": "bulleted_list",
@@ -98,7 +98,7 @@
     },
     {
       "id": "stage-5",
-      "heading": "Stage 5 (months 12–18)",
+      "heading": "Stage 5 (Mid–Late 2027)",
       "blocks": [
         {
           "type": "bulleted_list",
@@ -113,7 +113,7 @@
     },
     {
       "id": "long-term",
-      "heading": "Long-term / research (12+ months)",
+      "heading": "Long-term / research (2028 and beyond)",
       "blocks": [
         {
           "type": "bulleted_list",
@@ -192,11 +192,11 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "**Wellness-grade products first** (presence, falls, gait): no FDA clearance required. Target: first paying hospital customer 9–12 months post-funding."
+          "text": "**Wellness-grade products first** (presence, falls, gait): no FDA clearance required. Target: first paying hospital customer by Spring 2027 (funding-dependent)."
         },
         {
           "type": "paragraph",
-          "text": "**Vitals-grade products** (HR, RR, apnea): FDA 510(k) Class II. Target: ~18 months post-funding, ~$300K all-in."
+          "text": "**Vitals-grade products** (HR, RR, apnea): FDA 510(k) Class II. Target: late 2027, ~$300K all-in (funding-dependent)."
         }
       ]
     },

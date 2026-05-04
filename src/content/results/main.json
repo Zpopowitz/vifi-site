@@ -217,11 +217,11 @@
           "type": "table",
           "headers": ["Effort", "Expected MAE drop", "Status"],
           "rows": [
-            ["Multi-subject dataset (10+ subjects)", "4.15 → 2.5–3 bpm", "Stage 1 post-funding"],
-            ["Multi-room dataset (5+ rooms)", "further generalization", "Stage 1 post-funding"],
-            ["Phase-domain features (CFO/SFO calibration)", "→ 1.5–2 bpm", "Stage 4"],
-            ["4-receiver array + multi-antenna averaging", "further improvement", "Stage 5"],
-            ["Higher CSI packet rate (firmware patch)", "marginal", "Stage 6"]
+            ["Multi-subject dataset (10+ subjects)", "4.15 → 2.5–3 bpm", "Summer 2026 (funding-dependent)"],
+            ["Multi-room dataset (5+ rooms)", "further generalization", "Summer 2026 (funding-dependent)"],
+            ["Phase-domain features (CFO/SFO calibration)", "→ 1.5–2 bpm", "Winter 2026 – Spring 2027"],
+            ["4-receiver array + multi-antenna averaging", "further improvement", "Mid–Late 2027"],
+            ["Higher CSI packet rate (firmware patch)", "marginal", "2028+"]
           ]
         },
         {
