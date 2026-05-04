@@ -132,5 +132,7 @@ const subpageSchema = z.object({
 
 const results = defineCollection({ type: "data", schema: subpageSchema });
 const roadmap = defineCollection({ type: "data", schema: subpageSchema });
+const privacy = defineCollection({ type: "data", schema: subpageSchema });
+const terms = defineCollection({ type: "data", schema: subpageSchema });
 
-export const collections = { landing, results, roadmap };
+export const collections = { landing, results, roadmap, privacy, terms };

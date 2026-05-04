@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "title": "Privacy Policy",
+    "description": "How vifi.health handles personal information. ViFi collects only the minimal server-log data needed to operate the site and respond to email inquiries; the site uses no cookies, no analytics, and no marketing trackers."
+  },
+  "title": "Privacy Policy",
+  "intro": "Last updated May 2026. This policy explains what information vifi.health collects, how it is used, and the choices available to you. The site is a public marketing page — it does not host accounts, forms, or any clinical software.",
+  "sections": [
+    {
+      "id": "scope",
+      "heading": "Who this covers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This policy applies to **vifi.health** and any subdomains operated by ViFi (the \"Site\"). It does not cover a future hospital pilot deployment of the ViFi system, which will be governed by a separate written agreement, IRB protocol, and Business Associate Agreement where applicable."
+        }
+      ]
+    },
+    {
+      "id": "what-we-collect",
+      "heading": "What we collect",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "We aim to collect as little as possible. In practice that means:"
+        },
+        {
+          "type": "bulleted_list",
+          "items": [
+            "**Server logs.** The Site is hosted on Vercel. Each request is logged by Vercel with the requesting IP address, user agent, requested path, response code, and timestamp. Logs are retained per Vercel's data-retention policy and used to operate, secure, and debug the Site.",
+            "**Email correspondence.** If you write to `zach@vifi.health` or `pilots@vifi.health` we receive your name, email address, and the contents of your message. We retain that correspondence in the relevant inbox while we discuss the topic and afterwards as part of normal business records.",
+            "**No cookies, analytics, or trackers.** The Site does not set cookies, does not load Google Analytics, Meta Pixel, or any third-party marketing or session-replay scripts, and does not fingerprint visitors."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "how-we-use",
+      "heading": "How we use it",
+      "blocks": [
+        {
+          "type": "bulleted_list",
+          "items": [
+            "Operate, secure, and improve the Site",
+            "Respond to email inquiries you send us",
+            "Comply with legal obligations and respond to lawful requests"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "We do not sell personal information, and we do not share it for advertising or marketing purposes."
+        }
+      ]
+    },
+    {
+      "id": "service-providers",
+      "heading": "Service providers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "We use a small set of third-party providers to run the Site. Each acts as a processor of any data they handle on our behalf:"
+        },
+        {
+          "type": "bulleted_list",
+          "items": [
+            "**Vercel** — static hosting, edge delivery, server logs",
+            "**Cloudflare** — DNS",
+            "**GitHub** — source-control hosting (the Site's code is in a GitHub repository; this is not where visitor data lives)",
+            "**Email provider** — receives mail sent to addresses on the `vifi.health` domain"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "your-rights",
+      "heading": "Your rights",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Depending on where you live, you may have the right to access, correct, delete, or export the personal information we hold about you, and to object to or restrict certain processing. To exercise any of these rights, email [zach@vifi.health](mailto:zach@vifi.health) and we will respond within a reasonable period. If you are in the EU/UK, you also have the right to lodge a complaint with your local data-protection authority."
+        }
+      ]
+    },
+    {
+      "id": "children",
+      "heading": "Children",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Site is intended for adults — clinicians, researchers, investors, and prospective hospital partners. It is not directed at children under 13, and we do not knowingly collect personal information from them."
+        }
+      ]
+    },
+    {
+      "id": "changes",
+      "heading": "Changes to this policy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "We may update this policy as the Site evolves. The \"Last updated\" date at the top reflects the most recent revision. Material changes will be highlighted on the Site for a reasonable period before they take effect."
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "heading": "Contact",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Questions about this policy: [zach@vifi.health](mailto:zach@vifi.health)."
+        }
+      ]
+    }
+  ]
+}

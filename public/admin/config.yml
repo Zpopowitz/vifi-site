@@ -311,3 +311,141 @@ collections:
                           name: row
                           widget: list
                           field: { label: "Cell", name: c, widget: string }
+
+  # ---- Privacy subpage ----
+  # Edits src/content/privacy/main.json — same blocks structure as results/roadmap.
+  - name: privacy
+    label: "Privacy policy (/privacy)"
+    files:
+      - file: src/content/privacy/main.json
+        name: main
+        label: "Privacy policy"
+        format: json
+        editor: { preview: false }
+        fields:
+          - label: "Page metadata"
+            name: meta
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Title (browser tab + OG)", name: title,       widget: string }
+              - { label: "Description (meta + OG)",  name: description, widget: text }
+          - { label: "Page title (h1)", name: title, widget: string }
+          - { label: "Intro paragraph", name: intro, widget: text, required: false }
+          - label: "Sections"
+            name: sections
+            widget: list
+            fields:
+              - { label: "Anchor id", name: id, widget: string, required: false }
+              - { label: "Heading (h2)", name: heading, widget: string }
+              - label: "Content blocks"
+                name: blocks
+                widget: list
+                types:
+                  - label: "Paragraph"
+                    name: paragraph
+                    widget: object
+                    fields:
+                      - { label: "Type", name: type, widget: hidden, default: "paragraph" }
+                      - { label: "Text (markdown inline)", name: text, widget: text }
+                  - label: "Subheading (h3)"
+                    name: subheading
+                    widget: object
+                    fields:
+                      - { label: "Type", name: type, widget: hidden, default: "subheading" }
+                      - { label: "Text", name: text, widget: string }
+                  - label: "Bulleted list"
+                    name: bulleted_list
+                    widget: object
+                    fields:
+                      - { label: "Type", name: type, widget: hidden, default: "bulleted_list" }
+                      - { label: "Items", name: items, widget: list, field: { label: "Item", name: i, widget: text } }
+                  - label: "Ordered list"
+                    name: ordered_list
+                    widget: object
+                    fields:
+                      - { label: "Type", name: type, widget: hidden, default: "ordered_list" }
+                      - { label: "Items", name: items, widget: list, field: { label: "Item", name: i, widget: text } }
+                  - label: "Table"
+                    name: table
+                    widget: object
+                    fields:
+                      - { label: "Type", name: type, widget: hidden, default: "table" }
+                      - { label: "Headers", name: headers, widget: list, field: { label: "Header", name: h, widget: string } }
+                      - label: "Rows"
+                        name: rows
+                        widget: list
+                        field:
+                          label: "Row (cells)"
+                          name: row
+                          widget: list
+                          field: { label: "Cell", name: c, widget: string }
+
+  # ---- Terms subpage ----
+  # Edits src/content/terms/main.json — same blocks structure as the others.
+  - name: terms
+    label: "Terms of use (/terms)"
+    files:
+      - file: src/content/terms/main.json
+        name: main
+        label: "Terms of use"
+        format: json
+        editor: { preview: false }
+        fields:
+          - label: "Page metadata"
+            name: meta
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Title (browser tab + OG)", name: title,       widget: string }
+              - { label: "Description (meta + OG)",  name: description, widget: text }
+          - { label: "Page title (h1)", name: title, widget: string }
+          - { label: "Intro paragraph", name: intro, widget: text, required: false }
+          - label: "Sections"
+            name: sections
+            widget: list
+            fields:
+              - { label: "Anchor id", name: id, widget: string, required: false }
+              - { label: "Heading (h2)", name: heading, widget: string }
+              - label: "Content blocks"
+                name: blocks
+                widget: list
+                types:
+                  - label: "Paragraph"
+                    name: paragraph
+                    widget: object
+                    fields:
+                      - { label: "Type", name: type, widget: hidden, default: "paragraph" }
+                      - { label: "Text (markdown inline)", name: text, widget: text }
+                  - label: "Subheading (h3)"
+                    name: subheading
+                    widget: object
+                    fields:
+                      - { label: "Type", name: type, widget: hidden, default: "subheading" }
+                      - { label: "Text", name: text, widget: string }
+                  - label: "Bulleted list"
+                    name: bulleted_list
+                    widget: object
+                    fields:
+                      - { label: "Type", name: type, widget: hidden, default: "bulleted_list" }
+                      - { label: "Items", name: items, widget: list, field: { label: "Item", name: i, widget: text } }
+                  - label: "Ordered list"
+                    name: ordered_list
+                    widget: object
+                    fields:
+                      - { label: "Type", name: type, widget: hidden, default: "ordered_list" }
+                      - { label: "Items", name: items, widget: list, field: { label: "Item", name: i, widget: text } }
+                  - label: "Table"
+                    name: table
+                    widget: object
+                    fields:
+                      - { label: "Type", name: type, widget: hidden, default: "table" }
+                      - { label: "Headers", name: headers, widget: list, field: { label: "Header", name: h, widget: string } }
+                      - label: "Rows"
+                        name: rows
+                        widget: list
+                        field:
+                          label: "Row (cells)"
+                          name: row
+                          widget: list
+                          field: { label: "Cell", name: c, widget: string }
