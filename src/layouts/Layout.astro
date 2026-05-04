@@ -115,6 +115,13 @@ const url = Astro.site
 <style is:global>
   html {
     scroll-behavior: smooth;
+    /* Suppress the transient horizontal scrollbar caused by data-animate
+       slide-in transforms (translateX ±3rem). Nothing on the site needs
+       to scroll horizontally; tables that overflow on narrow viewports
+       have their own overflow-x:auto wrappers. `clip` is preferred over
+       `hidden` so it doesn't establish a new scroll container, which
+       would break the sticky header. */
+    overflow-x: clip;
   }
   body {
     text-rendering: optimizeLegibility;
@@ -142,7 +149,12 @@ const url = Astro.site
 }
 </style>
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  // Re-bind on every page navigation. Astro's ViewTransitions swap the
+  // DOM without firing DOMContentLoaded, so a one-shot listener would
+  // leave new [data-animate] sections stuck at opacity:0 after a soft
+  // nav. astro:page-load fires on both the initial load and after each
+  // view-transition swap, so the observer always sees the live DOM.
+  const setupScrollReveal = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -155,9 +167,10 @@ const url = Astro.site
       { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
     );
     document
-      .querySelectorAll("[data-animate]")
+      .querySelectorAll("[data-animate]:not(.animate-in)")
       .forEach((el) => observer.observe(el));
-  });
+  };
+  document.addEventListener("astro:page-load", setupScrollReveal);
 </script>
 
 <style is:global>
