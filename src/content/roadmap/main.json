@@ -26,11 +26,11 @@
             ["Per-packet CSI ingest", "Shipped — live API endpoint"],
             ["ESP32 capture + HR logger", "Shipped — hands-free 2-min paired capture"],
             ["Presence / occupancy", "Shipped (variance threshold)"],
-            ["Apnea detection", "Stub"],
-            ["Transient-event logger", "Stub"],
-            ["Gait / walking-speed", "Stub (WiGait reference)"],
-            ["Fall detection", "Stub (WiFall reference)"],
-            ["4-receiver multi-node array (deterministic identity)", "Stub"]
+            ["Apnea detection", "Planned"],
+            ["Transient-event logger", "Planned"],
+            ["Gait / walking-speed", "Planned (WiGait reference)"],
+            ["Fall detection", "Planned (WiFall reference)"],
+            ["4-receiver multi-node array (deterministic identity)", "Planned"]
           ]
         }
       ]
@@ -126,17 +126,21 @@
       ]
     },
     {
-      "id": "out-of-scope",
-      "heading": "Out of scope (wrong physics for WiFi CSI)",
+      "id": "complementary-sensors",
+      "heading": "Where add-on sensors fit best",
       "blocks": [
         {
+          "type": "paragraph",
+          "text": "Some vital signs are best measured with a different physics. ViFi's WiFi-CSI pipeline is designed to share the room with low-cost add-on modules — the per-room hardware budget leaves plenty of headroom for them."
+        },
+        {
           "type": "table",
-          "headers": ["Capability", "Why not", "Alternative"],
+          "headers": ["Vital sign", "Best-fit sensor", "Add-on cost"],
           "rows": [
-            ["Blood oxygen (SpO₂)", "Optical sensor, not RF", "$5 PPG add-on module"],
-            ["Body temperature", "IR sensor, not RF", "$10 IR thermometer add-on"],
-            ["Blood pressure", "Open research problem industry-wide", "None pursued"],
-            ["ECG waveform", "Requires direct skin contact", "None pursued"]
+            ["Blood oxygen (SpO₂)", "Optical PPG module", "~$5"],
+            ["Body temperature", "Infrared thermometer module", "~$10"],
+            ["Blood pressure", "Active research problem industry-wide", "—"],
+            ["ECG waveform", "Direct-contact electrodes", "—"]
           ]
         }
       ]
